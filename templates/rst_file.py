@@ -1,35 +1,50 @@
-from utils.stringify import list_to_rst_modules, generate_headline
+from utils.stringify import list_to_rst_modules, generate_headline, generate_sub_headline, get_pyfile_header
+from locales.dictionary import Locale
 
 
-def generate_index_rst(file_path, project_name, readme_file_path, rst_files):
+def generate_index_rst(file_path, project_name, readme_file_path, python_files, python_packages):
     """
 
     :param file_path:
     :param project_name:
     :param readme_file_path:
-    :param rst_files:
+    :param python_files:
+    :param python_packages:
     :return:
     """
 
-    template = """
-Welcome to {}'s documentation!
-========================================
-.. mdinclude :: {}
-.. toctree::
-   :maxdepth: 4
-   :caption: Table of Contents
-   :name: mastertoc
+    readme = ''
+    if readme_file_path != '':
+        header = Locale().strings.get('getting started')
+        readme = header + '\n' + generate_headline(header) + '\n.. mdinclude :: {}'.format(readme_file_path)
 
+    template = """
+{}
+{}
+.. toctree::
+   :maxdepth: 3
+   :caption: {}
+   :name: mastertoc
+   
+{}
 {}
 
-Indices and tables
+{}
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-    """.format(project_name, readme_file_path, list_to_rst_modules(rst_files))
+    """.format(Locale().strings.get('welcome msg').format(project_name),
+               generate_headline(Locale().strings.get('welcome msg').format(project_name)),
+               Locale().strings.get('toc'), list_to_rst_modules(python_packages), readme,
+               Locale().strings.get('indexes content'))
 
+    includes = ''
+    for pyfile in python_files:
+        includes = includes + '\n.. automodule:: {}\n   :members:'.format(pyfile)
+
+    template = template + includes
     with open(file_path, 'w') as f:
         f.write(template)
 
@@ -54,33 +69,50 @@ def generate_markdown_rst(file_path, name, md_file_path):
         f.write(template)
 
 
-def generate_package_leaf_rst(file_path, package_name, modules):
+def generate_package_leaf_rst(file_path, package_name, python_files):
+    """
 
+    :param file_path:
+    :param package_name:
+    :param python_files:
+    :return:
+    """
     template = """
 {}
 {}
    """.format(package_name, generate_headline(package_name))
 
-    for module in modules:
-        template = template + '\n.. automodule:: {}\n   :members:'.format(module)
+    for pyfile in python_files:
+        template = template + '\n' + get_pyfile_header(pyfile) + '\n' + generate_sub_headline(pyfile) + \
+                   '\n.. automodule:: {}\n   :members:'.format(pyfile) + '\n'
 
     with open(file_path, 'w') as f:
         f.write(template)
 
 
-def generate_package_not_leaf_rst(file_path, package_name, modules, sub_modules):
+def generate_package_not_leaf_rst(file_path, package_name, python_files, python_packages):
+    """
+
+    :param file_path:
+    :param package_name:
+    :param python_files:
+    :param python_packages:
+    :return:
+    """
     template = """
 {}
 {}
 .. toctree::
-   :maxdepth: 2
-   :caption: Table of Contents
+   :maxdepth: 3
+   :caption: {}
    
 {}
-   """.format(package_name, generate_headline(package_name), list_to_rst_modules(sub_modules))
+   """.format(package_name, generate_headline(package_name),
+              Locale().strings.get('toc'), list_to_rst_modules(python_packages))
 
-    for module in modules:
-        template = template + '\n.. automodule:: {}\n   :members:'.format(module)
+    for pyfile in python_files:
+        template = template + '\n' + get_pyfile_header(pyfile) + '\n' + generate_sub_headline(pyfile) + \
+                   '\n.. automodule:: {}\n   :members:'.format(pyfile) + '\n'
 
     with open(file_path, 'w') as f:
         f.write(template)

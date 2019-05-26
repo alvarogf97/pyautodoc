@@ -1,5 +1,7 @@
 import os
 from templates.sphinx_structure import generate_structure
+from locales.dictionary import Locale
+from utils.stringify import convert_path
 
 
 if __name__ == '__main__':
@@ -12,14 +14,17 @@ if __name__ == '__main__':
     project_name = input('Enter project name: ')
     author = input('Enter author: ')
     version = input('Enter current version: ')
-    language_locale = input('Enter language locale (leave blank for en): ')
+    language_locale = input('Enter language locale (leave blank for es): ')
     if language_locale == '':
-        language_locale = 'en'
+        language_locale = 'es'
+
+    Locale(locale=language_locale)
 
     root_folder = ""
     while not os.path.isdir(root_folder):
         root_folder = input('Enter path for root project folder: ')
 
+    root_folder = convert_path(root_folder)
     readme_file = input('Enter path for README.md (leave blank if you don\'t want to include it): ')
     license_file = input('Enter path for LICENSE.md (leave blank if you don\'t want to include it): ')
     changelog_file = input('Enter path for CHANGELOG.md (leave blank if you don\'t want to include it):')

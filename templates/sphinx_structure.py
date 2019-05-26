@@ -1,12 +1,25 @@
 import os
 from templates.makefiles import gen_window_makefile, gen_makefile
 from templates.sphinx_config_file import generate_config_file
-from templates.rst_file import generate_index_rst, generate_markdown_rst
+from templates.rst_file import generate_index_rst, generate_markdown_rst, \
+    generate_package_not_leaf_rst, generate_package_leaf_rst
 from identify.project_structure import identify_structure
 
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
                        license_file, changelog_file):
+    """
+
+    :param root_folder:
+    :param project_name:
+    :param author:
+    :param version:
+    :param language_locale:
+    :param readme_file:
+    :param license_file:
+    :param changelog_file:
+    :return:
+    """
 
     if not os.path.isdir('./build'):
         os.mkdir('./build')
@@ -34,5 +47,23 @@ def generate_structure(root_folder, project_name, author, version, language_loca
         generate_markdown_rst('./source/license.rst', 'License', license_file)
         modules.append('license')
 
-    modules.extend(identify_structure(root_folder))
-    generate_index_rst('./source/index.rst', project_name, readme_file, modules)
+    root = identify_structure(root_folder)
+    modules.extend([mod.filename for mod in root.submodules])
+
+    generate_modules_srt(root)
+    generate_index_rst('./source/index.rst', project_name, readme_file, root.python_files, modules)
+
+
+def generate_modules_srt(root_module):
+    """
+
+    :param root_module:
+    :return:
+    """
+    for module in root_module.submodules:
+        if module.is_leaf():
+            generate_package_leaf_rst('./source/' + module.filename + '.rst', module.name, module.python_files)
+        else:
+            generate_modules_srt(module)
+            generate_package_not_leaf_rst('./source/' + module.filename + '.rst', module.name,
+                                          module.python_files, [mod.filename for mod in module.submodules])
