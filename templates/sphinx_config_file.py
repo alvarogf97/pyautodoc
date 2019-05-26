@@ -71,7 +71,8 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static'] 
-""".format(root_folder, project_name, str(datetime.datetime.now().year) + author, author, version, language_locale)
+""".format(root_folder, project_name, str(datetime.datetime.now().year) + ', ' + author, author, version,
+           language_locale)
 
     with open(file_path, 'w') as f:
         f.write(template)
