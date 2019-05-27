@@ -109,7 +109,7 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
    
 {}
     """.format(package_name, generate_headline(package_name),
-              Locale().strings.get('toc'), list_to_rst_modules(python_packages))
+               Locale().strings.get('toc'), list_to_rst_modules(python_packages))
 
     for pyfile in python_files:
         template = template + '\n' + get_pyfile_header(pyfile) + '\n' + generate_sub_headline(pyfile) + \

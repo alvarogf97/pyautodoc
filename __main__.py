@@ -1,32 +1,21 @@
+import yaml
 import os
 from pyautodoc.generators.sphinx_structure import generate_structure
-from pyautodoc.i18n.dictionary import Locale
-from pyautodoc.utils.stringify import convert_path
 
 
 if __name__ == '__main__':
 
-    print('======================================')
-    print('=    sphinx automatization module    =')
-    print('======================================')
-    print('\n')
-
-    project_name = input('Enter project name: ')
-    author = input('Enter author: ')
-    version = input('Enter current version: ')
-    language_locale = input('Enter language locale (leave blank for es): ')
-    if language_locale == '':
-        language_locale = 'es'
-
-    Locale(locale=language_locale)
-
-    root_folder = ""
-    while not os.path.isdir(root_folder):
-        root_folder = input('Enter path for root project folder: ')
-
-    root_folder = convert_path(root_folder)
-    readme_file = input('Enter path for README.md (leave blank if you don\'t want to include it): ')
-    license_file = input('Enter path for LICENSE.md (leave blank if you don\'t want to include it): ')
-    changelog_file = input('Enter path for CHANGELOG.md (leave blank if you don\'t want to include it):')
-    generate_structure(root_folder, project_name, author, version, language_locale, readme_file, license_file,
-                       changelog_file)
+    with open('pydoc.yaml', 'r') as stream:
+        try:
+            config = yaml.safe_load(stream)
+            output_folder = config['output_folder']
+            os.chdir(output_folder)
+            generate_structure(config['root_folder'], config['project_name'], config['author'],
+                               config['version'], config.get('language_locale', 'es'), config.get('readme_file', ''),
+                               config.get('license_file', ''), config.get('changelog_file', ''))
+        except yaml.YAMLError as e:
+            print('Invalid yaml file structure: ' + str(e))
+        except KeyError as e:
+            print('Required config param: ' + str(e))
+        except Exception as e:
+            print('Invalid path for output or root folder ' + str(e))

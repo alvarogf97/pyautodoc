@@ -1,5 +1,5 @@
-- generar sphinx structure
-- añadir ruta del proyecto
-- añadir extensiones
-- añadir markdown
-- 
+# Getting started
+
+##From console
+
+##From yaml

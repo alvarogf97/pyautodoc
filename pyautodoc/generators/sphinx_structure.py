@@ -1,4 +1,5 @@
 import os
+from pyautodoc.i18n.dictionary import Locale
 from pyautodoc.generators.makefiles import gen_window_makefile, gen_makefile
 from pyautodoc.generators.sphinx_config_file import generate_config_file
 from pyautodoc.generators.rst_file import generate_index_rst, generate_markdown_rst, \
@@ -21,6 +22,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :return:
     """
 
+    Locale(locale=language_locale)
     if not os.path.isdir('./build'):
         os.mkdir('./build')
     if not os.path.isdir('./source'):

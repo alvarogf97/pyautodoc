@@ -1,6 +1,5 @@
 from pyautodoc.i18n.exceptions import LocaleUnsupportedException
-from pyautodoc.i18n.locales import es
-
+from pyautodoc.i18n.locales.es import es
 
 strings = {'es':es}
 
@@ -10,6 +9,7 @@ class Locale:
     class __Locale:
         def __init__(self, locale):
             if locale not in strings.keys():
+                print(locale)
                 raise LocaleUnsupportedException('Unsupported locale')
             self.strings = strings.get(locale)
 
