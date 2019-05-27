@@ -1,5 +1,5 @@
 # Getting started
 
-##From console
+## From console
 
-##From yaml
+## From yaml
