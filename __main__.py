@@ -1,7 +1,7 @@
 import os
-from templates.sphinx_structure import generate_structure
-from locales.dictionary import Locale
-from utils.stringify import convert_path
+from pyautodoc.generators import generate_structure
+from pyautodoc.i18n.dictionary import Locale
+from pyautodoc.utils import convert_path
 
 
 if __name__ == '__main__':
