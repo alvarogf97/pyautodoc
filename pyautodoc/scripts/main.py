@@ -3,6 +3,7 @@ import sys
 import yaml
 from pyautodoc.generators.sphinx_structure import generate_structure
 from pyautodoc.utils.stringify import convert_path
+from pyautodoc.utils.path import get_abs_path
 
 
 def from_console():
@@ -44,12 +45,16 @@ def from_yaml(file):
 
     with open(file, 'r') as stream:
         try:
+            yaml_folder = os.path.abspath(os.path.dirname(file))
             config = yaml.safe_load(stream)
-            output_folder = config['output_folder']
+            output_folder = get_abs_path(convert_path(config['output_folder']), yaml_folder)
             os.chdir(output_folder)
-            generate_structure(config['root_folder'], config['project_name'], config['author'],
-                               config['version'], config.get('language_locale', 'es'), config.get('readme_file', ''),
-                               config.get('license_file', ''), config.get('changelog_file', ''))
+            generate_structure(convert_path(get_abs_path(config['root_folder'], yaml_folder)), config['project_name'],
+                               config['author'], config['version'], config.get('language_locale', 'es'),
+                               get_abs_path(config.get('readme_file', ''), yaml_folder),
+                               get_abs_path(config.get('license_file', ''), yaml_folder),
+                               get_abs_path(config.get('changelog_file', ''), yaml_folder),
+                               config.get('excludes'), config.get('ignores'))
         except yaml.YAMLError as e:
             print('Invalid yaml file structure: ' + str(e))
         except KeyError as e:
@@ -61,7 +66,6 @@ def from_yaml(file):
 def main():
     if len(sys.argv) > 1:
         if sys.argv[1] == '--yaml':
-            yaml_file = ''
             try:
                 yaml_file = sys.argv[2]
             except IndexError:
@@ -74,3 +78,7 @@ def main():
             print('Invalid option: ' + sys.argv[1])
     else:
         from_console()
+
+
+if __name__ == '__main__':
+    main()

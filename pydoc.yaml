@@ -3,7 +3,15 @@ author: Alvaro
 version: 0.2
 language_locale: es
 
-root_folder: C:\Users\Alvaro\pyautodoc\pyautodoc
+root_folder: pyautodoc
 output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
-readme_file: C:\Users\Alvaro\pyautodoc\README.md
-license_file: C:\Users\Alvaro\pyautodoc\LICENSE.md
+readme_file: README.md
+license_file: LICENSE.md
+changelog_file: CHANGELOG.md
+
+excludes:
+  - scripts
+  - i18n.exceptions.py
+
+ignores:
+  - test.py

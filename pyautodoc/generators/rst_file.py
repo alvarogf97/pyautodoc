@@ -1,5 +1,6 @@
 import codecs
-from pyautodoc.utils.stringify import list_to_rst_modules, generate_headline, generate_sub_headline, get_pyfile_header
+from pyautodoc.utils.stringify import list_to_rst_modules, generate_headline, generate_sub_headline, get_pyfile_header, \
+    generate_sub_sub_headline
 from pyautodoc.i18n.dictionary import Locale
 
 
@@ -23,7 +24,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 {}
 {}
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :caption: {}
    :name: mastertoc
    
@@ -43,7 +44,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 
     includes = ''
     for pyfile in python_files:
-        includes = includes + '\n.. automodule:: {}\n   :members:'.format(pyfile)
+        includes = includes + '\n.. automodule:: {}\n   :members:'.format(pyfile.name)
 
     template = template + includes
     with codecs.open(file_path, 'w', 'utf-8') as f:
@@ -84,8 +85,11 @@ def generate_package_leaf_rst(file_path, package_name, python_files):
    """.format(package_name, generate_headline(package_name))
 
     for pyfile in python_files:
-        template = template + '\n' + get_pyfile_header(pyfile) + '\n' + generate_sub_headline(pyfile) + \
-                   '\n.. automodule:: {}\n   :members:'.format(pyfile) + '\n'
+        template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
+                   '\n.. automodule:: {}\n   :members:'.format(pyfile.name) + '\n '
+        for class_ in pyfile.classes:
+            template = template + '\n' + class_ + '\n' + generate_sub_sub_headline(class_) + \
+                       '\n.. autoclass:: {}'.format(class_) + '\n'
 
     with codecs.open(file_path, 'w', 'utf-8') as f:
         f.write(template)
@@ -104,7 +108,7 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
 {}
 {}
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :caption: {}
    
 {}
@@ -112,8 +116,11 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
                Locale().strings.get('toc'), list_to_rst_modules(python_packages))
 
     for pyfile in python_files:
-        template = template + '\n' + get_pyfile_header(pyfile) + '\n' + generate_sub_headline(pyfile) + \
-                   '\n.. automodule:: {}\n   :members:'.format(pyfile) + '\n'
+        template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
+                   '\n.. automodule:: {}\n   :members:'.format(pyfile.name) + '\n'
+        for class_ in pyfile.classes:
+            template = template + '\n' + class_ + '\n' + generate_sub_sub_headline(class_) + \
+                       '\n.. autoclass:: {}'.format(class_) + '\n'
 
     with codecs.open(file_path, 'w', 'utf-8') as f:
         f.write(template)

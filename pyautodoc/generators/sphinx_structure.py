@@ -8,7 +8,7 @@ from pyautodoc.identify.project_structure import identify_structure
 
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
-                       license_file, changelog_file):
+                       license_file, changelog_file, excludes=None, ignores=None):
     """
 
     :param root_folder:
@@ -19,18 +19,23 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param readme_file:
     :param license_file:
     :param changelog_file:
+    :param excludes:
+    :param ignores:
     :return:
 
-    .. code-block:: python
+    Normal response::
 
         >>generate_structure(name=hola)
 
-    it will be:
-
-    .. code-block:: python
+    it will be::
 
         >>hi!
     """
+
+    if excludes is None:
+        excludes = []
+    if ignores is None:
+        ignores = []
 
     Locale(locale=language_locale)
     if not os.path.isdir('./build'):
@@ -59,7 +64,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
         generate_markdown_rst('./source/license.rst', 'License', license_file)
         modules.append('license')
 
-    root = identify_structure(root_folder)
+    root = identify_structure(root_folder, excludes, ignores)
     modules.extend([mod.filename for mod in root.submodules])
 
     generate_modules_srt(root)

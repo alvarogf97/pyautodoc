@@ -29,7 +29,20 @@ class Module:
         """
         schema = '\n' + indentation + '|--' + self.name
         for pyfile in self.python_files:
-            schema = schema + '\n' + indentation + '|----' + pyfile + '.py'
+            schema = schema + '\n' + indentation + '|----' + pyfile.name + '.py'
         for module in self.submodules:
             schema = schema + module.__str__(indentation + "    ")
         return schema
+
+
+class PythonFile:
+
+    def __init__(self, name, classes):
+        """
+
+        :param name:
+        :param classes:
+        """
+
+        self.name = name
+        self.classes = classes
