@@ -20,6 +20,16 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param license_file:
     :param changelog_file:
     :return:
+
+    .. code-block:: python
+
+        >>generate_structure(name=hola)
+
+    it will be:
+
+    .. code-block:: python
+
+        >>hi!
     """
 
     Locale(locale=language_locale)
