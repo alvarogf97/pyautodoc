@@ -12,4 +12,12 @@ root_folder: C:\Users\Alvaro\pyautodoc\pyautodoc
 output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
 readme_file: C:\Users\Alvaro\pyautodoc\README.md
 license_file: C:\Users\Alvaro\pyautodoc\LICENSE.md
+
+excludes:
+  - scripts
+  - i18n.exceptions.py
+
+ignores:
+  - test.py
+
 ````

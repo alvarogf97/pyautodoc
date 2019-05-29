@@ -56,6 +56,7 @@ def from_yaml(file):
                                get_abs_path(config.get('license_file', ''), yaml_folder),
                                get_abs_path(config.get('changelog_file', ''), yaml_folder),
                                config.get('excludes'), config.get('ignores'))
+            os.system('make html')
         except yaml.YAMLError as e:
             print('Invalid yaml file structure: ' + str(e))
         except KeyError as e:

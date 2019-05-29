@@ -37,12 +37,13 @@ release = '{}'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r']
 source_suffix = ['.rst', '.md']
 # NOTE: Don't overwrite your old extension list! Just add to it!
 
 autodoc_default_flags = ['members', 'private_members']
 autoclass_content = 'both'
+autodoc_member_order = 'bysource'
 autosummary_generate = True
 
 # Add any paths that contain generators here, relative to this directory.
