@@ -1,6 +1,7 @@
 import os
 import sys
 import yaml
+import traceback
 from pyautodoc.generators.sphinx_structure import generate_structure
 from pyautodoc.utils.stringify import convert_path
 from pyautodoc.utils.path import get_abs_path
@@ -60,6 +61,7 @@ def from_yaml(file):
         except KeyError as e:
             print('Required config param: ' + str(e))
         except Exception as e:
+            print(traceback.format_exc())
             print('Invalid path for output or root folder ' + str(e))
 
 
