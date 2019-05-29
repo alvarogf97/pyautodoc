@@ -1,5 +1,3 @@
-# CHANGELOG
-
 ### v 0.3
 
 - Se pueden establecer rutas relativas en el fichero de configuracion .yaml

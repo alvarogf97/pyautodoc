@@ -1,6 +1,5 @@
 import codecs
-from pyautodoc.utils.stringify import list_to_rst_modules, generate_headline, generate_sub_headline, get_pyfile_header, \
-    generate_sub_sub_headline
+from pyautodoc.utils.stringify import list_to_rst_modules, generate_headline, generate_sub_headline, get_pyfile_header
 from pyautodoc.i18n.dictionary import Locale
 
 
@@ -88,8 +87,7 @@ def generate_package_leaf_rst(file_path, package_name, python_files):
         template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
                    '\n.. automodule:: {}\n   :members:'.format(pyfile.name) + '\n '
         for class_ in pyfile.classes:
-            template = template + '\n' + class_ + '\n' + generate_sub_sub_headline(class_) + \
-                       '\n.. autoclass:: {}'.format(class_) + '\n'
+            template = template + '\n.. autoclass:: {}\n   :members:'.format(class_) + '\n'
 
     with codecs.open(file_path, 'w', 'utf-8') as f:
         f.write(template)
@@ -119,8 +117,7 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
         template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
                    '\n.. automodule:: {}\n   :members:'.format(pyfile.name) + '\n'
         for class_ in pyfile.classes:
-            template = template + '\n' + class_ + '\n' + generate_sub_sub_headline(class_) + \
-                       '\n.. autoclass:: {}'.format(class_) + '\n'
+            template = template + '\n.. autoclass:: {}\n   :members:'.format(class_) + '\n'
 
     with codecs.open(file_path, 'w', 'utf-8') as f:
         f.write(template)

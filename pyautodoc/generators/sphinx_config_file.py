@@ -41,7 +41,7 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r']
 source_suffix = ['.rst', '.md']
 # NOTE: Don't overwrite your old extension list! Just add to it!
 
-autodoc_default_flags = ['members']
+autodoc_default_flags = ['members', 'private_members']
 autoclass_content = 'both'
 autosummary_generate = True
 

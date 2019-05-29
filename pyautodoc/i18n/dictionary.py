@@ -1,13 +1,24 @@
 from pyautodoc.i18n.exceptions import LocaleUnsupportedException
 from pyautodoc.i18n.locales.es import es
 
-strings = {'es':es}
+strings = {'es': es}
 
 
 class Locale:
+    """
+    Clase singleton para el control de la internacionalización
+    """
 
     class __Locale:
+        """
+        Clase privada para la creación del singleton
+        """
         def __init__(self, locale):
+            """
+
+            :param locale: código del páis
+            :type locale: str
+            """
             if locale not in strings.keys():
                 print(locale)
                 raise LocaleUnsupportedException('Unsupported locale')

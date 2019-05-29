@@ -22,7 +22,7 @@ def identify_structure(root_folder, excludes, ignores, modules_structure=None, n
     python_files = [PythonFile(module_name + os.path.splitext(pyfile)[0],
                                get_classes(os.path.join(root_folder, pyfile))) for pyfile in os.listdir(root_folder)
                     if os.path.splitext(pyfile)[1] == '.py' and pyfile != '__init__.py' and pyfile not in ignores
-                    and module_name + os.path.splitext(pyfile)[0] not in excludes]
+                    and module_name + pyfile not in excludes]
     python_packages = [pypackage for pypackage in os.listdir(root_folder) if is_package(root_folder + '/' + pypackage)
                        and pypackage not in ignores and '.'.join(modules_structure + [pypackage]) not in excludes]
 

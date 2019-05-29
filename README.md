@@ -1,8 +1,6 @@
-# Getting started
+### Desde consola:
 
-## From console
-
-## From yaml
+### Desde yaml:
 
 ````yaml
 project_name: PyAutoDoc
