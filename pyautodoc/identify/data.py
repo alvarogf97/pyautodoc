@@ -7,6 +7,10 @@ class Module:
         :param python_files:
         :param submodules:
         :param filename:
+
+        example código
+        ..code-block::
+            ``>>> Module(name=alvaro)``
         """
 
         self.name = name
