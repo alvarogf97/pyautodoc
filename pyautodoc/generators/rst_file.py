@@ -70,18 +70,21 @@ def generate_markdown_rst(file_path, name, md_file_path):
         f.write(template)
 
 
-def generate_package_leaf_rst(file_path, package_name, python_files):
+def generate_package_leaf_rst(file_path, package_name, python_files, init):
     """
 
     :param file_path:
     :param package_name:
     :param python_files:
+    :param init:
     :return:
     """
     template = """
 {}
 {}
    """.format(package_name, generate_headline(package_name))
+
+    template = template + '\n.. automodule:: {}\n   :members:'.format(init) + '\n'
 
     for pyfile in python_files:
         template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
@@ -93,13 +96,14 @@ def generate_package_leaf_rst(file_path, package_name, python_files):
         f.write(template)
 
 
-def generate_package_not_leaf_rst(file_path, package_name, python_files, python_packages):
+def generate_package_not_leaf_rst(file_path, package_name, python_files, python_packages, init):
     """
 
     :param file_path:
     :param package_name:
     :param python_files:
     :param python_packages:
+    :param init:
     :return:
     """
     template = """
@@ -112,6 +116,8 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
 {}
     """.format(package_name, generate_headline(package_name),
                Locale().strings.get('toc'), list_to_rst_modules(python_packages))
+
+    template = template + '\n.. automodule:: {}\n   :members:'.format(init) + '\n'
 
     for pyfile in python_files:
         template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \

@@ -49,14 +49,20 @@ def from_yaml(file):
             yaml_folder = os.path.abspath(os.path.dirname(file))
             config = yaml.safe_load(stream)
             output_folder = get_abs_path(convert_path(config['output_folder']), yaml_folder)
+
+            readme_file = get_abs_path(config.get('readme_file', ''), yaml_folder) \
+                if config.get('readme_file', '') != '' else ''
+            license_file = get_abs_path(config.get('license_file', ''), yaml_folder) \
+                if config.get('license_file', '') != '' else ''
+            changelog_file = get_abs_path(config.get('changelog_file', ''), yaml_folder) \
+                if config.get('changelog_file', '') != '' else ''
+
             os.chdir(output_folder)
             generate_structure(convert_path(get_abs_path(config['root_folder'], yaml_folder)), config['project_name'],
                                config['author'], config['version'], config.get('language_locale', 'es'),
-                               get_abs_path(config.get('readme_file', ''), yaml_folder),
-                               get_abs_path(config.get('license_file', ''), yaml_folder),
-                               get_abs_path(config.get('changelog_file', ''), yaml_folder),
-                               config.get('excludes'), config.get('ignores'))
-            os.system('make html')
+                               readme_file, license_file, changelog_file, config.get('excludes'),
+                               config.get('ignores'), config.get('template_theme'))
+            os.system('make html -Q')
         except yaml.YAMLError as e:
             print('Invalid yaml file structure: ' + str(e))
         except KeyError as e:

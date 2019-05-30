@@ -37,6 +37,7 @@ class Module:
         self.python_files = python_files
         self.submodules = submodules
         self.filename = filename
+        self.init_file = filename + '.__init__'
 
     def is_leaf(self):
         """

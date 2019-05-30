@@ -1,7 +1,7 @@
 import datetime
 
 
-def generate_config_file(root_folder, project_name, author, version, language_locale, file_path):
+def generate_config_file(root_folder, project_name, author, version, language_locale, file_path, template_theme=None):
     """
     Generate python configuration file with needed information
 
@@ -11,8 +11,12 @@ def generate_config_file(root_folder, project_name, author, version, language_lo
     :param version:
     :param language_locale:
     :param file_path:
+    :param template_theme:
     :return:
     """
+
+    if template_theme is None:
+        template_theme = 'alabaster'
 
     template = """
 # -- Path setup --------------------------------------------------------------
@@ -41,7 +45,7 @@ extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 's
 source_suffix = ['.rst', '.md']
 # NOTE: Don't overwrite your old extension list! Just add to it!
 
-autodoc_default_flags = ['members', 'private_members']
+autodoc_default_flags = ['members', 'private-members']
 autoclass_content = 'both'
 autodoc_member_order = 'bysource'
 autosummary_generate = True
@@ -67,14 +71,13 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
-
+html_theme = '{}'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static'] 
 """.format(root_folder, project_name, str(datetime.datetime.now().year) + ', ' + author, author, version,
-           language_locale)
+           language_locale, template_theme)
 
     with open(file_path, 'w') as f:
         f.write(template)

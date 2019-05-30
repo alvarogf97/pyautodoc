@@ -8,7 +8,7 @@ from pyautodoc.identify.project_structure import identify_structure
 
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
-                       license_file, changelog_file, excludes=None, ignores=None):
+                       license_file, changelog_file, excludes=None, ignores=None, template_theme=None):
     """
 
     :param root_folder:
@@ -21,6 +21,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param changelog_file:
     :param excludes:
     :param ignores:
+    :param template_theme:
     :return:
 
     Normal response::
@@ -53,7 +54,8 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     if not os.path.isdir('./source/_templates'):
         os.mkdir('./source/_templates')
 
-    generate_config_file(root_folder, project_name, author, version, language_locale, './source/conf.py')
+    generate_config_file(root_folder, project_name, author, version, language_locale,
+                         './source/conf.py', template_theme)
     modules = []
 
     if changelog_file != "":
@@ -79,8 +81,8 @@ def generate_modules_srt(root_module):
     """
     for module in root_module.submodules:
         if module.is_leaf():
-            generate_package_leaf_rst('./source/' + module.filename + '.rst', module.name, module.python_files)
+            generate_package_leaf_rst('./source/' + module.filename + '.rst', module.name, module.python_files, module.init_file)
         else:
             generate_modules_srt(module)
             generate_package_not_leaf_rst('./source/' + module.filename + '.rst', module.name,
-                                          module.python_files, [mod.filename for mod in module.submodules])
+                                          module.python_files, [mod.filename for mod in module.submodules], module.init_file)
