@@ -4,8 +4,10 @@ version: 0.2
 language_locale: es
 
 root_folder: pyautodoc
-output_folder: doc
+output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
 readme_file: README.md
+license_file: LICENSE.md
+changelog_file: CHANGELOG.md
 
 template_theme: alabaster
 
@@ -15,3 +17,11 @@ excludes:
 
 ignores:
   - test.py
+
+mocks_imports:
+  - django
+
+makes:
+  - html
+  - sdfsdf
+  - pdf

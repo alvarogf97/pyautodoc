@@ -24,6 +24,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 {}
 .. toctree::
    :hidden:
+   :maxdepth: 2
    
 {}
 {}

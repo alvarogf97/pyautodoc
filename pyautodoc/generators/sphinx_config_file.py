@@ -1,7 +1,18 @@
 import datetime
+from pyautodoc.utils.stringify import generate_mocks_stuff
 
 
-def generate_config_file(root_folder, project_name, author, version, language_locale, file_path, template_theme=None):
+autodoc_default_options = """{
+    'members': True,
+    'member-order': 'bysource',
+    'special-members': '',
+    'undoc-members': False,
+    'exclude-members': ''
+}"""
+
+
+def generate_config_file(root_folder, project_name, author, version, language_locale, file_path, template_theme=None,
+                         mocks_imports=None):
     """
     Generate python configuration file with needed information
 
@@ -12,28 +23,32 @@ def generate_config_file(root_folder, project_name, author, version, language_lo
     :param language_locale:
     :param file_path:
     :param template_theme:
+    :param mocks_imports:
     :return:
     """
 
     if template_theme is None:
         template_theme = 'alabaster'
 
+    if mocks_imports is None:
+        mocks_imports = []
+
     template = """
 # -- Path setup --------------------------------------------------------------
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('{}'))
+sys.path.insert(0, os.path.abspath('{root_folder}'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = '{}'
-copyright = '{}'
-author = '{}'
+project = '{project_name}'
+copyright = '{copyright}'
+author = '{author}'
 
 # The full version, including alpha/beta/rc tags
-release = '{}'
+release = '{version}'
 
 
 # -- General configuration ---------------------------------------------------
@@ -45,9 +60,9 @@ extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 's
 source_suffix = ['.rst', '.md']
 # NOTE: Don't overwrite your old extension list! Just add to it!
 
-autodoc_default_flags = ['members', 'private-members']
+autodoc_default_options = {autodoc_default_options}
+autodoc_mock_imports = {mocks_imports}
 autoclass_content = 'both'
-autodoc_member_order = 'bysource'
 autosummary_generate = True
 
 # Add any paths that contain generators here, relative to this directory.
@@ -58,7 +73,7 @@ templates_path = ['_templates']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = '{}'
+language = '{language_locale}'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -71,13 +86,15 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = '{}'
+html_theme = '{template_theme}'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static'] 
-""".format(root_folder, project_name, str(datetime.datetime.now().year) + ', ' + author, author, version,
-           language_locale, template_theme)
+""".format(root_folder=root_folder, project_name=project_name,
+           copyright=str(datetime.datetime.now().year) + ', ' + author, author=author, version=version,
+           autodoc_default_options=autodoc_default_options, mocks_imports=generate_mocks_stuff(mocks_imports),
+           language_locale=language_locale, template_theme=template_theme)
 
     with open(file_path, 'w') as f:
         f.write(template)

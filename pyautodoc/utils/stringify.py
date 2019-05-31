@@ -73,3 +73,18 @@ def convert_path(path):
     :rtype: str
     """
     return path.replace('\\', '\\\\')
+
+
+def generate_mocks_stuff(mocks_list):
+    """
+    Convierte una lista a string
+
+    :param mocks_list: lista de las importaciones que no deben realizarse
+    :return: lista en formato string
+    :rtype: str
+    """
+    string_list = '['
+    for mock in mocks_list:
+        string_list = string_list + '\"' + mock + '\", '
+    string_list = string_list[:-2] + ']'
+    return string_list

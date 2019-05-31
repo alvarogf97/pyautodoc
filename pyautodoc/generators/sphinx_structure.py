@@ -8,7 +8,8 @@ from pyautodoc.identify.project_structure import identify_structure
 
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
-                       license_file, changelog_file, excludes=None, ignores=None, template_theme=None):
+                       license_file, changelog_file, excludes=None, ignores=None, template_theme=None,
+                       mocks_imports=None):
     """
 
     :param root_folder:
@@ -22,6 +23,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param excludes:
     :param ignores:
     :param template_theme:
+    :param mocks_imports:
     :return:
 
     Normal response::
@@ -55,7 +57,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
         os.mkdir('./source/_templates')
 
     generate_config_file(root_folder, project_name, author, version, language_locale,
-                         './source/conf.py', template_theme)
+                         './source/conf.py', template_theme, mocks_imports)
     modules = []
 
     if changelog_file != "":

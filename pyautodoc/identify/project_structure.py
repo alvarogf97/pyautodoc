@@ -42,7 +42,7 @@ def get_classes(pyfile_path):
     :param pyfile_path:
     :return:
     """
-
     with open(pyfile_path, 'r') as f:
         inspection = ast.parse(f.read())
+
     return [class_.name for class_ in inspection.body if isinstance(class_, ast.ClassDef)]
