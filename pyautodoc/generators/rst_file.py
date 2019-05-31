@@ -23,9 +23,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 {}
 {}
 .. toctree::
-   :maxdepth: 1
-   :caption: {}
-   :name: mastertoc
+   :hidden:
    
 {}
 {}
@@ -38,7 +36,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 * :ref:`search`
     """.format(Locale().strings.get('welcome msg').format(project_name),
                generate_headline(Locale().strings.get('welcome msg').format(project_name)),
-               Locale().strings.get('toc'), list_to_rst_modules(python_packages), readme,
+               list_to_rst_modules(python_packages), readme,
                Locale().strings.get('indexes content'))
 
     includes = ''
@@ -109,13 +107,15 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
     template = """
 {}
 {}
+
+{}
+{}
 .. toctree::
    :maxdepth: 1
-   :caption: {}
    
 {}
-    """.format(package_name, generate_headline(package_name),
-               Locale().strings.get('toc'), list_to_rst_modules(python_packages))
+    """.format(package_name, generate_headline(package_name), Locale().strings.get('toc'),
+               generate_sub_headline(Locale().strings.get('toc')), list_to_rst_modules(python_packages))
 
     template = template + '\n.. automodule:: {}\n   :members:'.format(init) + '\n'
 

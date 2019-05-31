@@ -62,7 +62,7 @@ def from_yaml(file):
                                config['author'], config['version'], config.get('language_locale', 'es'),
                                readme_file, license_file, changelog_file, config.get('excludes'),
                                config.get('ignores'), config.get('template_theme'))
-            os.system('make html -Q')
+            os.system('make html')
         except yaml.YAMLError as e:
             print('Invalid yaml file structure: ' + str(e))
         except KeyError as e:
@@ -80,7 +80,7 @@ def main():
             except IndexError:
                 yaml_file = 'pydoc.yaml'
             if not os.path.isfile(yaml_file):
-                print('yml document not found!')
+                print('yaml document not found!')
             else:
                 from_yaml(yaml_file)
         else:

@@ -4,7 +4,7 @@ version: 0.2
 language_locale: es
 
 root_folder: pyautodoc
-output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
+output_folder: doc
 readme_file: README.md
 
 template_theme: alabaster
