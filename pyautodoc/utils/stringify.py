@@ -27,6 +27,12 @@ def generate_headline(text):
     :param str text: texto para el que generar la cabecera
     :return: cabecera para el texto
     :rtype: str
+
+    .. code-block:: python
+
+        >> generate_headline('Welcome')
+        '==========='
+
     """
     return "=" * (len(text) + 4)
 
@@ -38,6 +44,12 @@ def generate_sub_headline(text):
     :param str text: texto para el que generar la cabecera
     :return: cabecera para el texto
     :rtype: str
+
+    .. code-block:: python
+
+        >> generate_sub_headline('Welcome')
+        '###########'
+
     """
     return "#" * (len(text) + 4)
 
@@ -49,6 +61,12 @@ def generate_sub_sub_headline(text):
     :param str text: texto para el que generar la cabecera
     :return: cabecera para el texto
     :rtype: str
+
+    .. code-block:: python
+
+        >> generate_sub_sub_headline('Welcome')
+        '***********'
+
     """
     return "*" * (len(text) + 4)
 
@@ -60,6 +78,12 @@ def get_pyfile_header(pyfile):
     :param str pyfile: nombre completo de la ruta del fichero ``.py``
     :return: nombre del fichero
     :rtype: str
+
+    .. code-block:: python
+
+        >> get_pyfile_header('../a/c.py')
+        'c'
+
     """
     return pyfile.split('.')[-1]
 
@@ -71,6 +95,12 @@ def convert_path(path):
     :param str path: ruta
     :return: ruta escapada
     :rtype: str
+
+    .. code-block:: python
+
+        >> convert_path('..\a\c.py')
+        '..\\a\\c.py'
+
     """
     return path.replace('\\', '\\\\')
 
@@ -82,6 +112,12 @@ def generate_mocks_stuff(mocks_list):
     :param mocks_list: lista de las importaciones que no deben realizarse
     :return: lista en formato string
     :rtype: str
+
+    .. code-block:: python
+
+        >> convert_path(['a', 'b'])
+        '['a', 'b']'
+
     """
     if len(mocks_list) == 0:
         return '[]'

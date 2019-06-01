@@ -6,13 +6,37 @@ from pyautodoc.identify.data import Module, PythonFile
 
 def identify_structure(root_folder, excludes, ignores, modules_structure=None, name="Root"):
     """
+    Identifica la estructura del proyecto a documentar
 
-    :param root_folder:
-    :param excludes:
-    :param ignores:
-    :param modules_structure:
-    :param name:
-    :return:
+    :param str root_folder: carpeta raíz
+    :param list excludes: lista de elementos a excluir
+    :param list ignores: lista de elementos a ignorar
+    :param list modules_structure: lista de los módulos ya recorridos
+    :param str name: nombre del nodo
+    :return: devuelve el módulo raíz **root** con todos sus submódulos
+    :rtype: Module
+
+    .. code-block:: python
+
+        >> identify_structure('../myfolder/pydoc')
+        |--Root
+            |--generators
+                |----generators.makefiles.py
+                |----generators.rst_file.py
+                |----generators.sphinx_config_file.py
+                |----generators.sphinx_structure.py
+            |--i18n
+                |----i18n.dictionary.py
+                |--locales
+                    |----i18n.locales.es.py
+            |--identify
+                |----identify.data.py
+                |----identify.packages.py
+                |----identify.project_structure.py
+            |--utils
+                |----utils.path.py
+                |----utils.stringify.py
+
     """
 
     if modules_structure is None:
@@ -38,9 +62,17 @@ def identify_structure(root_folder, excludes, ignores, modules_structure=None, n
 
 def get_classes(pyfile_path):
     """
+    Obtiene las clases que están dentro de un fichero python
 
-    :param pyfile_path:
-    :return:
+    :param str pyfile_path: nombre del fichero a inspeccionar
+    :return: devuelve una lista con todas las clases dentro de un fichero python
+    :rtype: list
+
+    .. code-block:: python
+
+        >> get_classes('./data.py')
+        ['Module', 'PythonFile']
+
     """
     with open(pyfile_path, 'r') as f:
         inspection = ast.parse(f.read())

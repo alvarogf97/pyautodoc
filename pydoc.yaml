@@ -7,6 +7,9 @@ version: 0.2
 language_locale: es
 root_folder: pyautodoc
 output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
+sphinx_extensions:
+  - sphinx.ext.viewcode
+  - sphinx.ext.githubpages
 
 ####################################################
 #                     EXTRA FILES                  #
@@ -20,6 +23,7 @@ changelog_file: CHANGELOG.md
 ####################################################
 excludes:
   - scripts
+  - i18n.locales
 
 ignores:
   - test.py
@@ -45,11 +49,12 @@ html_config:
   #template_extensions:
   #  - sphinxjp.themes.basicstrap
   template_options:
-    logo: C:\Users\alvaro\Desktop\alvaro\cosillas\w.jpg
+    logo: C:\Users\alvaro\Desktop\logo.png
     github_user: alvarogf97
     github_repo: pyautodoc
     fixed_sidebar: True
     description: Pyautodoc! Automatize your python project documentation
+
 
 ####################################################
 #                 LaTeX PDF CONFIG                 #

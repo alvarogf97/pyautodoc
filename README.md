@@ -1,9 +1,9 @@
-## En pocas palabras:
-
 Pyautodoc permite la creación de documentación de los proyectos python de forma totalmente automática y
 configurable. Hace uso del proyecto [Sphinx](http://www.sphinx-doc.org/en/master/) y de extensiones como 
 [autodoc](http://www.sphinx-doc.org/es/stable/ext/autodoc.html) para generar la documentación en función
 de los **docstring** de las clases y métodos del proyecto. 
+
+# Guía rápida
 
 ## Instalación:
 
@@ -112,6 +112,9 @@ html_config:
   template_theme: alabaster
   #template_package: sphinx_theme
   #template_path: sphinx_theme.get_html_theme_path('stanford-theme')
+  #template_extensions:
+  # - ext_1
+  # - ext_2
   template_options:
     logo: MyLogo
     github_user: alvarogf97

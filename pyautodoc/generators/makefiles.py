@@ -1,9 +1,8 @@
 def gen_window_makefile(file_path):
     """
-    Generate windows make.bat
+    Genera windows make.bat
 
-    :param file_path:
-    :return:
+    :param str file_path: ruta para guardar el fichero
     """
 
     template = """
@@ -49,10 +48,9 @@ popd
 
 def gen_makefile(file_path):
     """
-    Generate makefile
+    Genera el makefile
 
-    :param file_path:
-    :return:
+    :param str file_path: ruta para guardar el fichero
     """
 
     template = """

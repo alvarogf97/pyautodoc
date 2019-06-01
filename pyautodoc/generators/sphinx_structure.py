@@ -9,31 +9,23 @@ from pyautodoc.identify.project_structure import identify_structure
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
                        license_file, changelog_file, excludes=None, ignores=None, html_options=None,
-                       latex_options=None, mocks_imports=None):
+                       latex_options=None, mocks_imports=None, sphinx_extensions=None):
     """
+    Genera la estructura de Sphinx de acuerdo a los parámetros recibidos.
 
-    :param root_folder:
-    :param project_name:
-    :param author:
-    :param version:
-    :param language_locale:
-    :param readme_file:
-    :param license_file:
-    :param changelog_file:
-    :param excludes:
-    :param ignores:
-    :param html_options:
-    :param latex_options:
-    :param mocks_imports:
-    :return:
-
-    Normal response::
-
-        >>generate_structure(name=hola)
-
-    it will be::
-
-        >>hi!
+    :param str root_folder: ruta de la carpeta raíz del proyecto a documentar
+    :param str project_name: nombre del proyecto
+    :param str author: autor
+    :param str version: versión
+    :param str language_locale: código lingüìstico del país
+    :param str readme_file: ruta del fichero ``README.md``
+    :param str license_file: ruta del fichero ``LICENSE.md``
+    :param str changelog_file: ruta del fichero ``CHANGELOG.md``
+    :param list excludes: lista con los elementos a excluir
+    :param list ignores: lista con los elementos a ignorar
+    :param dict html_options: diccionario con la configuración html de Sphinx
+    :param dict latex_options: diccionario con la configuración LaTeX de Sphinx
+    :param list mocks_imports: lista con las importaciones que deben ignorarse dentro del proyecto
     """
 
     if excludes is None:
@@ -59,7 +51,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
 
     generate_config_file(root_folder=root_folder, project_name=project_name, author=author, version=version,
                          language_locale=language_locale, file_path='./source/conf.py', html_options=html_options,
-                         latex_options=latex_options, mocks_imports=mocks_imports)
+                         latex_options=latex_options, mocks_imports=mocks_imports, extra_extensions=sphinx_extensions)
     modules = []
 
     if changelog_file != "":
@@ -79,9 +71,9 @@ def generate_structure(root_folder, project_name, author, version, language_loca
 
 def generate_modules_srt(root_module):
     """
+    Genera los ficheros ``.rst`` de los módulos identificados
 
-    :param root_module:
-    :return:
+    :param Module root_module: módulo raíz del proyecto a documentar
     """
     for module in root_module.submodules:
         if module.is_leaf():

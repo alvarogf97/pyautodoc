@@ -12,23 +12,28 @@ autodoc_default_options = """{
 
 
 def generate_config_file(root_folder, project_name, author, version, language_locale, file_path, html_options=None,
-                         latex_options=None, mocks_imports=None):
+                         latex_options=None, mocks_imports=None, extra_extensions=None):
     """
-    Generate python configuration file with needed information
+    Genera el fichero de configuración necesario para sphinx
 
-    :param root_folder:
-    :param project_name:
-    :param author:
-    :param version:
-    :param language_locale:
-    :param file_path:
-    :param html_options:
-    :param latex_options:
-    :param mocks_imports:
-    :return:
+    :param str root_folder: ruta de la carpeta raíz del proyecto a documentar
+    :param str project_name: nombre del proyecto
+    :param str author: autor
+    :param str version: versión del proyecto
+    :param str language_locale: código lingüìstico del país
+    :param str file_path: ruta del fichero para guardar
+    :param dict html_options: diccionario con las opciones de configuración html para Sphinx
+    :param dict latex_options: diccionario con las opciones de configuración LaTeX para Sphinx
+    :param list mocks_imports: lista de las importaciones que deben ignorarse dentro del ficheros
+    :param list extra_extensions: lista con las extensiónes extra de Sphinx
     """
     if mocks_imports is None:
         mocks_imports = []
+
+    if extra_extensions is None:
+        extra_extensions = ""
+    else:
+        extra_extensions = 'extensions.extend(' + generate_mocks_stuff(extra_extensions) + ')'
 
     template = """
 # -- Path setup --------------------------------------------------------------
@@ -54,8 +59,8 @@ master_doc = 'index'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r', 
-'sphinx.ext.githubpages']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r']
+{extra_extensions}
 source_suffix = ['.rst', '.md']
 # NOTE: Don't overwrite your old extension list! Just add to it!
 
@@ -81,7 +86,7 @@ exclude_patterns = []
 """.format(root_folder=root_folder, project_name=project_name,
            copyright=str(datetime.datetime.now().year) + ', ' + author, author=author, version=version,
            autodoc_default_options=autodoc_default_options, mocks_imports=generate_mocks_stuff(mocks_imports),
-           language_locale=language_locale)
+           language_locale=language_locale, extra_extensions=extra_extensions)
     template = template + generate_html_config(html_options)
     template = template + generate_latex_config(latex_options)
 
@@ -91,9 +96,11 @@ exclude_patterns = []
 
 def generate_html_config(html_options=None):
     """
+    Genera la información necesaria para la compilación a HTML
 
-    :param html_options:
-    :return:
+    :param dict html_options: diccionario con las opciones html de Sphinx
+    :return: string con la información necesaría para añadir al fichero ```conf.py`` en lo referente a las opciones html
+    :rtype: str
     """
 
     if html_options is None:
@@ -139,6 +146,14 @@ html_static_path = ['_static']
 
 
 def generate_latex_config(latex_options=None):
+    """
+    Genera la información necesaria para la compilación a LaTeX
+
+    :param dict latex_options: diccionario con las opciones LaTeX de Sphinx
+    :return: string con la información necesaría para añadir al fichero ```conf.py`` en lo referente a las opciones LaTeX
+    :rtype: str
+
+    """
     if latex_options is None:
         return ""
     else:

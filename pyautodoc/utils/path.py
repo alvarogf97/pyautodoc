@@ -10,6 +10,12 @@ def get_abs_path(path, relative_to):
     :param str relative_to: relativa a
     :return: ruta absoluta del path
     :rtype: str
+
+    .. code-block:: python
+
+        >> get_abs_path('../c.py', '../dir', 'C:\\<username>\\c.py')
+        'c.py'
+
     """
     if not os.path.isabs(path):
         return os.path.abspath(os.path.normpath(os.path.join(relative_to, path)))
@@ -23,6 +29,12 @@ def path_leaf(path):
     :param str path: ruta absoluta del fichero
     :return: nombre del fichero
     :rtype: str
+
+    .. code-block:: python
+
+        >> path_leaf('a/b/c.py')
+        'c.py'
+
     """
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)

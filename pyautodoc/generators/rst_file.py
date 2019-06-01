@@ -5,19 +5,18 @@ from pyautodoc.i18n.dictionary import Locale
 
 def generate_index_rst(file_path, project_name, readme_file_path, python_files, python_packages):
     """
+    Genera el fichero ``index.rst``, el fichero raíz de la documentación
 
-    :param file_path:
-    :param project_name:
-    :param readme_file_path:
-    :param python_files:
-    :param python_packages:
-    :return:
+    :param str file_path: ruta para guardar el fichero
+    :param str project_name: nombre del proyecto
+    :param str readme_file_path: ruta del fichero README.md
+    :param list python_files: lista de los ficheros ``.py`` que deben estar en el fichero
+    :param list python_packages: lista de los módulos que deben estar en el fichero
     """
 
     readme = ''
     if readme_file_path != '':
-        header = Locale().strings.get('getting started')
-        readme = header + '\n' + generate_headline(header) + '\n.. mdinclude :: {}'.format(readme_file_path)
+        readme = '.. mdinclude :: {}'.format(readme_file_path)
 
     template = """
 {}
@@ -51,11 +50,12 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 
 def generate_markdown_rst(file_path, name, md_file_path):
     """
+    Genera un fichero ``.rst`` a raíz de uno ``.md`` usando la directiva ```..mdinclude:: `` del
+    paquete m2r
 
-    :param file_path:
-    :param name:
-    :param md_file_path:
-    :return:
+    :param str file_path: ruta para guardar el fichero
+    :param str name: nombre del fichero markdown
+    :param str md_file_path: ruta del fichero markdown
     """
 
     template = """
@@ -71,12 +71,12 @@ def generate_markdown_rst(file_path, name, md_file_path):
 
 def generate_package_leaf_rst(file_path, package_name, python_files, init):
     """
+    Genera el fichero ``.rst`` de un paquete python que no contiene ningún submódulo
 
-    :param file_path:
-    :param package_name:
-    :param python_files:
-    :param init:
-    :return:
+    :param str file_path: ruta del fichero para guardar
+    :param str package_name: nombre del módulo
+    :param list python_files: lista con los fichero ```.py`` del módulo
+    :param str init: ruta del fichero ``__init__.py``
     """
     template = """
 {}
@@ -97,13 +97,13 @@ def generate_package_leaf_rst(file_path, package_name, python_files, init):
 
 def generate_package_not_leaf_rst(file_path, package_name, python_files, python_packages, init):
     """
+    Genera el fichero ``.rst`` de un paquete python que contiene algún submódulo
 
-    :param file_path:
-    :param package_name:
-    :param python_files:
-    :param python_packages:
-    :param init:
-    :return:
+    :param str file_path: ruta del fichero para guardar
+    :param str package_name: nombre del módulo
+    :param list python_files: lista con los fichero ```.py`` del módulo
+    :param list python_packages: lista con los submódulos del módulo python
+    :param str init: ruta del fichero ``__init__.py``
     """
     template = """
 {}
