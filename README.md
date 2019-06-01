@@ -8,13 +8,13 @@ de los **docstring** de las clases y métodos del proyecto.
 ## Instalación:
 
 Desde **github** podemos instalarlo ejecutando:
-````cmd
+````
 pip install git+https://github.com/alvarogf97/pyautodoc.git
 ````
 
 Desde **PyPi**:
 
-````cmd
+````
 Próximamente
 ````
 
@@ -28,13 +28,13 @@ para compilar a latex es necesario tener instalado compilador para el mismo. En 
 
 Ejecutamos el comando:
 
-````cmd
+````
 pyautodoc
 ````
 
 Indicamos los datos necesarios:
 
-````cmd
+````
 Enter project name: <Nombre del proyecto>
 Enter author: <Autor>
 Enter current version: <Version>
@@ -47,7 +47,7 @@ Enter path for Output folder: <Carpeta para generar la documentación>
 ````
 
 En la carpeta **output/source** se encontrarán los ficheros generados. Para compilar a html o pdf ejecutamos:
-````cmd
+````
 make html
 make latexpdf
 ````
@@ -128,13 +128,13 @@ latex_config:
 ````
 
 Para generar la documentación ejecutamos:
-````cmd
+````
 pyautodoc --yaml
 ````
 
 Alternativamente, si el fichero ``.yaml`` tiene otro nombre, o esta en otra localización, podemos
 ejecutar:
 
-````cmd
+````
 pyautodoc --yaml <Ruta del fichero .yaml>
 ````

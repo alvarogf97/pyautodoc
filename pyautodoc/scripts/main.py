@@ -67,13 +67,15 @@ def from_yaml(file):
             html_logo_file_path = config.get('html_config', {}).get('template_options', {}).get('logo')
             if html_logo_file_path is not None:
                 html_logo_file_path = get_abs_path(html_logo_file_path, yaml_folder)
-                print(html_logo_file_path)
                 config['html_config']['template_options']['logo'] = path_leaf(html_logo_file_path)
 
             if not os.path.isdir(output_folder):
                 os.mkdir(output_folder)
             else:
-                shutil.rmtree(output_folder, ignore_errors=True)
+                if os.path.isdir(output_folder + '/source'):
+                    shutil.rmtree(output_folder + '/source', ignore_errors=True)
+                if os.path.isdir(output_folder + '/build'):
+                    shutil.rmtree(output_folder + '/build', ignore_errors=True)
             os.chdir(output_folder)
             generate_structure(convert_path(get_abs_path(config['root_folder'], yaml_folder)), config['project_name'],
                                config['author'], config['version'], config.get('language_locale', 'es'),
