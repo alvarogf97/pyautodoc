@@ -1,4 +1,5 @@
 ### v 0.5
+- Se ha corregido un bug que no permitia generar la documentación desde consola
 - Se puede configurar las opciones del tema desde el fichero yaml
 - Se puede configurar las opciones de compilación a latex y pdf
 - Se puede compilar a PDF

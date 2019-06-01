@@ -96,6 +96,9 @@ def generate_html_config(html_options=None):
     :return:
     """
 
+    if html_options is None:
+        html_options = {}
+
     template_theme = html_options.get('template_theme', 'alabaster')
     template_options = html_options.get('template_options', {})
     template_import = ''
