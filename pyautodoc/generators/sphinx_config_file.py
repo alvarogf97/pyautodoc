@@ -103,6 +103,10 @@ def generate_html_config(html_options=None):
     template_options = html_options.get('template_options', {})
     template_import = ''
 
+    extensions = ""
+    if html_options.get('template_extensions') is not None:
+        extensions = 'extensions.extend(' + generate_mocks_stuff(html_options.get('template_extensions')) + ')'
+
     if html_options.get('template_package') is not None:
         template_import = 'import ' + html_options.get('template_package')
         try:
@@ -123,12 +127,13 @@ def generate_html_config(html_options=None):
 html_theme = '{template_theme}'
 html_theme_options = {template_options}
 {template_path}
+{extensions}
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 """.format(template_import=template_import, template_theme=template_theme, template_options=str(template_options),
-           template_path=template_path)
+           template_path=template_path, extensions=extensions)
 
     return template
 

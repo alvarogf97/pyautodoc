@@ -40,8 +40,10 @@ makes:
 ####################################################
 html_config:
   template_theme: alabaster
-  #template_package: sphinx_theme
-  #template_path: sphinx_theme.get_html_theme_path('stanford-theme')
+  #template_package: sphinx_adc_theme
+  #template_path: sphinx_adc_theme.get_html_theme_path()
+  #template_extensions:
+  #  - sphinxjp.themes.basicstrap
   template_options:
     logo: C:\Users\alvaro\Desktop\alvaro\cosillas\w.jpg
     github_user: alvarogf97
