@@ -1,16 +1,23 @@
+####################################################
+#                   GENERAL CONFIG                 #
+####################################################
 project_name: PyAutoDoc
 author: Alvaro
 version: 0.2
 language_locale: es
-
 root_folder: pyautodoc
 output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
+
+####################################################
+#                     EXTRA FILES                  #
+####################################################
 readme_file: README.md
 license_file: LICENSE.md
 changelog_file: CHANGELOG.md
 
-template_theme: alabaster
-
+####################################################
+#                   PROJECT CONFIG                 #
+####################################################
 excludes:
   - scripts
   - i18n.exceptions.py
@@ -20,8 +27,33 @@ ignores:
 
 mocks_imports:
   - django
+  - pyautodoc
 
+####################################################
+#                  COMPILING CONFIG                #
+####################################################
 makes:
   - html
-  - sdfsdf
-  - pdf
+  #- pdf
+
+####################################################
+#                    HTML CONFIG                   #
+####################################################
+html_config:
+  template_theme: alabaster
+  #template_package: sphinx_theme
+  #template_path: sphinx_theme.get_html_theme_path('stanford-theme')
+  template_options:
+    logo: C:\Users\alvaro\Desktop\alvaro\cosillas\w.jpg
+    github_user: alvarogf97
+    github_repo: pyautodoc
+    fixed_sidebar: True
+    description: Pyautodoc! Automatize your python project documentation
+
+####################################################
+#                 LaTeX PDF CONFIG                 #
+####################################################
+latex_config:
+  latex_engine: pdflatex
+  latex_logo: C:\Users\alvaro\Desktop\alvaro\cosillas\w.jpg
+

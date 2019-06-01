@@ -8,8 +8,8 @@ from pyautodoc.identify.project_structure import identify_structure
 
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
-                       license_file, changelog_file, excludes=None, ignores=None, template_theme=None,
-                       mocks_imports=None):
+                       license_file, changelog_file, excludes=None, ignores=None, html_options=None,
+                       latex_options=None, mocks_imports=None):
     """
 
     :param root_folder:
@@ -22,7 +22,8 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param changelog_file:
     :param excludes:
     :param ignores:
-    :param template_theme:
+    :param html_options:
+    :param latex_options:
     :param mocks_imports:
     :return:
 
@@ -56,8 +57,9 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     if not os.path.isdir('./source/_templates'):
         os.mkdir('./source/_templates')
 
-    generate_config_file(root_folder, project_name, author, version, language_locale,
-                         './source/conf.py', template_theme, mocks_imports)
+    generate_config_file(root_folder=root_folder, project_name=project_name, author=author, version=version,
+                         language_locale=language_locale, file_path='./source/conf.py', html_options=html_options,
+                         latex_options=latex_options, mocks_imports=mocks_imports)
     modules = []
 
     if changelog_file != "":
@@ -83,8 +85,10 @@ def generate_modules_srt(root_module):
     """
     for module in root_module.submodules:
         if module.is_leaf():
-            generate_package_leaf_rst('./source/' + module.filename + '.rst', module.name, module.python_files, module.init_file)
+            generate_package_leaf_rst('./source/' + module.filename + '.rst', module.name, module.python_files,
+                                      module.init_file)
         else:
             generate_modules_srt(module)
             generate_package_not_leaf_rst('./source/' + module.filename + '.rst', module.name,
-                                          module.python_files, [mod.filename for mod in module.submodules], module.init_file)
+                                          module.python_files, [mod.filename for mod in module.submodules],
+                                          module.init_file)

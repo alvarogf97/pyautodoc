@@ -1,6 +1,6 @@
 import datetime
-from pyautodoc.utils.stringify import generate_mocks_stuff
-
+import sys
+from pyautodoc.utils.stringify import generate_mocks_stuff, convert_path
 
 autodoc_default_options = """{
     'members': True,
@@ -11,8 +11,8 @@ autodoc_default_options = """{
 }"""
 
 
-def generate_config_file(root_folder, project_name, author, version, language_locale, file_path, template_theme=None,
-                         mocks_imports=None):
+def generate_config_file(root_folder, project_name, author, version, language_locale, file_path, html_options=None,
+                         latex_options=None, mocks_imports=None):
     """
     Generate python configuration file with needed information
 
@@ -22,14 +22,11 @@ def generate_config_file(root_folder, project_name, author, version, language_lo
     :param version:
     :param language_locale:
     :param file_path:
-    :param template_theme:
+    :param html_options:
+    :param latex_options:
     :param mocks_imports:
     :return:
     """
-
-    if template_theme is None:
-        template_theme = 'alabaster'
-
     if mocks_imports is None:
         mocks_imports = []
 
@@ -50,13 +47,15 @@ author = '{author}'
 # The full version, including alpha/beta/rc tags
 release = '{version}'
 
+master_doc = 'index'
 
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'm2r', 
+'sphinx.ext.githubpages']
 source_suffix = ['.rst', '.md']
 # NOTE: Don't overwrite your old extension list! Just add to it!
 
@@ -79,22 +78,63 @@ language = '{language_locale}'
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
+""".format(root_folder=root_folder, project_name=project_name,
+           copyright=str(datetime.datetime.now().year) + ', ' + author, author=author, version=version,
+           autodoc_default_options=autodoc_default_options, mocks_imports=generate_mocks_stuff(mocks_imports),
+           language_locale=language_locale)
+    template = template + generate_html_config(html_options)
+    template = template + generate_latex_config(latex_options)
+
+    with open(file_path, 'w') as f:
+        f.write(template)
 
 
+def generate_html_config(html_options=None):
+    """
+
+    :param html_options:
+    :return:
+    """
+
+    template_theme = html_options.get('template_theme', 'alabaster')
+    template_options = html_options.get('template_options', {})
+    template_import = ''
+
+    if html_options.get('template_package') is not None:
+        template_import = 'import ' + html_options.get('template_package')
+        try:
+            __import__(html_options.get('template_package'))
+        except ModuleNotFoundError:
+            print('You need to install theme: \"' + html_options.get('template_package') + '\" before runnig the script')
+            sys.exit()
+    template_path = 'html_theme_path = [' + html_options.get('template_path') + ']' \
+        if html_options.get('template_path') is not None else ''
+
+    template = """
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+{template_import}
 html_theme = '{template_theme}'
+html_theme_options = {template_options}
+{template_path}
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static'] 
-""".format(root_folder=root_folder, project_name=project_name,
-           copyright=str(datetime.datetime.now().year) + ', ' + author, author=author, version=version,
-           autodoc_default_options=autodoc_default_options, mocks_imports=generate_mocks_stuff(mocks_imports),
-           language_locale=language_locale, template_theme=template_theme)
+html_static_path = ['_static']
+""".format(template_import=template_import, template_theme=template_theme, template_options=str(template_options),
+           template_path=template_path)
 
-    with open(file_path, 'w') as f:
-        f.write(template)
+    return template
+
+
+def generate_latex_config(latex_options=None):
+    if latex_options is None:
+        return ""
+    else:
+        latex_template = ""
+        for key, value in latex_options.items():
+            latex_template = latex_template + key + " = \'" + convert_path(value) + "\'\n"
+    return latex_template

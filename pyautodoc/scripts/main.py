@@ -5,7 +5,7 @@ import traceback
 import shutil
 from pyautodoc.generators.sphinx_structure import generate_structure
 from pyautodoc.utils.stringify import convert_path
-from pyautodoc.utils.path import get_abs_path
+from pyautodoc.utils.path import get_abs_path, path_leaf
 
 
 make_actions = {
@@ -64,6 +64,12 @@ def from_yaml(file):
             changelog_file = get_abs_path(config.get('changelog_file', ''), yaml_folder) \
                 if config.get('changelog_file', '') != '' else ''
 
+            html_logo_file_path = config.get('html_config', {}).get('template_options', {}).get('logo')
+            if html_logo_file_path is not None:
+                html_logo_file_path = get_abs_path(html_logo_file_path, yaml_folder)
+                print(html_logo_file_path)
+                config['html_config']['template_options']['logo'] = path_leaf(html_logo_file_path)
+
             if not os.path.isdir(output_folder):
                 os.mkdir(output_folder)
             else:
@@ -72,13 +78,19 @@ def from_yaml(file):
             generate_structure(convert_path(get_abs_path(config['root_folder'], yaml_folder)), config['project_name'],
                                config['author'], config['version'], config.get('language_locale', 'es'),
                                readme_file, license_file, changelog_file, config.get('excludes'),
-                               config.get('ignores'), config.get('template_theme'), config.get('mocks_imports'))
+                               config.get('ignores'), config.get('html_config'), config.get('latex_config'),
+                               config.get('mocks_imports'))
+
+            if html_logo_file_path is not None and os.path.isdir('./source/_static'):
+                shutil.copy(html_logo_file_path, './source/_static')
+
             makes = config.get('makes', [])
             for make_action in makes:
                 try:
                     os.system(make_actions.get(make_action))
                 except Exception:
                     print('Action: ' + make_action + ' not available')
+
         except yaml.YAMLError as e:
             print('Invalid yaml file structure: ' + str(e))
         except KeyError as e:

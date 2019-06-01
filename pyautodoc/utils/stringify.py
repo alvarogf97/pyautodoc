@@ -83,8 +83,11 @@ def generate_mocks_stuff(mocks_list):
     :return: lista en formato string
     :rtype: str
     """
-    string_list = '['
-    for mock in mocks_list:
-        string_list = string_list + '\"' + mock + '\", '
-    string_list = string_list[:-2] + ']'
-    return string_list
+    if len(mocks_list) == 0:
+        return '[]'
+    else:
+        string_list = '['
+        for mock in mocks_list:
+            string_list = string_list + '\"' + mock + '\", '
+        string_list = string_list[:-2] + ']'
+        return string_list

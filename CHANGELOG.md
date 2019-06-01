@@ -1,10 +1,15 @@
+### v 0.5
+- Se puede configurar las opciones del tema desde el fichero yaml
+- Se puede configurar las opciones de compilación a latex y pdf
+- Se puede compilar a PDF
+
 ### v 0.4
 
 - Se pueden especificar las importaciones que no deben realizarse
 - Se puede introducir una imagen como logo
 - Se puede compilar a latex
 - Se añade compativilidad con ``__init__.py`` para definir el contenido del módulo
-- Se puede configurar el tema para la generación de la documentación
+- Se puede especificar el tema para la generación de la documentación
 - Se ha corregido un bug referente a los ficheros changelog y license
     
 
