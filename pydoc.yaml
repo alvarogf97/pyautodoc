@@ -20,7 +20,6 @@ changelog_file: CHANGELOG.md
 ####################################################
 excludes:
   - scripts
-  - i18n.exceptions.py
 
 ignores:
   - test.py
