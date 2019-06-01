@@ -1,5 +1,5 @@
 """
 .. note::
-    Módulo encargado de las traducciones pertinentes en función del código lingüìstico dado.
+    Módulo encargado de las traducciones pertinentes en función del código lingüístico dado.
 
 """

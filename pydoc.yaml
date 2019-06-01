@@ -3,12 +3,11 @@
 ####################################################
 project_name: PyAutoDoc
 author: Alvaro
-version: 0.2
+version: 0.6
 language_locale: es
 root_folder: pyautodoc
 output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
 sphinx_extensions:
-  - sphinx.ext.viewcode
   - sphinx.ext.githubpages
 
 ####################################################
@@ -49,11 +48,11 @@ html_config:
   #template_extensions:
   #  - sphinxjp.themes.basicstrap
   template_options:
-    logo: C:\Users\alvaro\Desktop\logo.png
+    logo: C:\Users\alvaro\Desktop\doc\logo.png
     github_user: alvarogf97
     github_repo: pyautodoc
     fixed_sidebar: True
-    description: Pyautodoc! Automatize your python project documentation
+    description: ¡Automatiza la documentación de tu proyecto!
 
 
 ####################################################

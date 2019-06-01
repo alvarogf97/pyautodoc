@@ -1,0 +1,17 @@
+
+i18n
+========
+   
+.. automodule:: i18n.__init__
+   :members:
+
+dictionary
+###################
+.. automodule:: i18n.dictionary
+   :members:
+ 
+exceptions
+###################
+.. automodule:: i18n.exceptions
+   :members:
+ 

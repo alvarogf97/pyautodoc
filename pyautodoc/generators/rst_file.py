@@ -50,7 +50,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
 
 def generate_markdown_rst(file_path, name, md_file_path):
     """
-    Genera un fichero ``.rst`` a raíz de uno ``.md`` usando la directiva ```..mdinclude:: `` del
+    Genera un fichero ``.rst`` a raíz de uno ``.md`` usando la directiva ``"..mdinclude::"`` del
     paquete m2r
 
     :param str file_path: ruta para guardar el fichero

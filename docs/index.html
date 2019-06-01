@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bienvenido a la documentación de PyAutoDoc &#8212; documentación de PyAutoDoc - 0.2</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="#">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">¡Automatiza la documentación de tu proyecto!</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=alvarogf97&repo=pyautodoc&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navegación</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">i18n</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identify.html">identify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="changelog.html" title="próximo capítulo">Changelog</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bienvenido-a-la-documentacion-de-pyautodoc">
+<h1>Bienvenido a la documentación de PyAutoDoc<a class="headerlink" href="#bienvenido-a-la-documentacion-de-pyautodoc" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Pyautodoc permite la creación de documentación de los proyectos python de forma totalmente automática y
+configurable. Hace uso del proyecto <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> y de extensiones como
+<a class="reference external" href="http://www.sphinx-doc.org/es/stable/ext/autodoc.html">autodoc</a> para generar la documentación en función
+de los <strong>docstring</strong> de las clases y métodos del proyecto.</p>
+</div>
+<div class="section" id="guia-rapida">
+<h1>Guía rápida<a class="headerlink" href="#guia-rapida" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="instalacion">
+<h2>Instalación:<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Desde <strong>github</strong> podemos instalarlo ejecutando:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">alvarogf97</span><span class="o">/</span><span class="n">pyautodoc</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Desde <strong>PyPi</strong>:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">Próximamente</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uso">
+<h2>Uso<a class="headerlink" href="#uso" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>NOTA</strong>:
+para compilar a latex es necesario tener instalado compilador para el mismo. En windows se necesita
+<strong>MiKTeX</strong> y <strong>Perl</strong></p>
+<div class="section" id="desde-consola">
+<h3>Desde consola:<a class="headerlink" href="#desde-consola" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Ejecutamos el comando:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">pyautodoc</span>
+</pre></div>
+</div>
+<p>Indicamos los datos necesarios:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nv">Enter</span> <span class="nv">project</span> <span class="nv">name</span>: <span class="o">&lt;</span><span class="nv">Nombre</span> <span class="nv">del</span> <span class="nv">proyecto</span><span class="o">&gt;</span>
+<span class="nv">Enter</span> <span class="nv">author</span>: <span class="o">&lt;</span><span class="nv">Autor</span><span class="o">&gt;</span>
+<span class="nv">Enter</span> <span class="nv">current</span> <span class="nv">version</span>: <span class="o">&lt;</span><span class="nv">Version</span><span class="o">&gt;</span>
+<span class="nv">Enter</span> <span class="nv">language</span> <span class="nv">locale</span> <span class="ss">(</span><span class="nv">leave</span> <span class="nv">blank</span> <span class="k">for</span> <span class="nv">es</span><span class="ss">)</span>: <span class="o">&lt;</span><span class="nv">C</span>ó<span class="nv">digo</span> <span class="nv">del</span> <span class="nv">pa</span>í<span class="nv">s</span> <span class="nv">para</span> <span class="nv">las</span> <span class="nv">traducciones</span><span class="o">&gt;</span>
+<span class="nv">Enter</span> <span class="nv">path</span> <span class="k">for</span> <span class="nv">root</span> <span class="nv">project</span> <span class="nv">folder</span>: <span class="o">&lt;</span><span class="nv">carpeta</span> <span class="nv">del</span> <span class="nv">proyecto</span> <span class="nv">a</span> <span class="nv">documentar</span><span class="o">&gt;</span>
+<span class="nv">Enter</span> <span class="nv">path</span> <span class="k">for</span> <span class="nv">README</span>.<span class="nv">md</span> <span class="ss">(</span><span class="nv">leave</span> <span class="nv">blank</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t want to include it): &lt;fichero readme&gt;</span>
+<span class="nv">Enter</span> <span class="nv">path</span> <span class="k">for</span> <span class="nv">LICENSE</span>.<span class="nv">md</span> <span class="ss">(</span><span class="nv">leave</span> <span class="nv">blank</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t want to include it): &lt;fichero license&gt;</span>
+<span class="nv">Enter</span> <span class="nv">path</span> <span class="k">for</span> <span class="nv">CHANGELOG</span>.<span class="nv">md</span> <span class="ss">(</span><span class="nv">leave</span> <span class="nv">blank</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t want to include it): &lt;fichero changelog&gt;</span>
+<span class="nv">Enter</span> <span class="nv">path</span> <span class="k">for</span> <span class="nv">Output</span> <span class="nv">folder</span>: <span class="o">&lt;</span><span class="nv">Carpeta</span> <span class="nv">para</span> <span class="nv">generar</span> <span class="nv">la</span> <span class="nv">documentaci</span>ó<span class="nv">n</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>En la carpeta <strong>output/source</strong> se encontrarán los ficheros generados. Para compilar a html o pdf ejecutamos:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+<span class="n">make</span> <span class="n">latexpdf</span>
+</pre></div>
+</div>
+<p>desde la carpeta <strong>output</strong></p>
+</div>
+<div class="section" id="desde-yaml">
+<h3>Desde yaml:<a class="headerlink" href="#desde-yaml" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos crear un fichero <code class="docutils literal notranslate"><span class="pre">pydoc.yaml</span></code> con la configuración necesaria para la generación automática de la
+documentación, esta opción permite una configuración mucho mas amplia que la generación por consola.</p>
+<p>La estructura del documento <code class="docutils literal notranslate"><span class="pre">pydoc.yaml</span></code> es:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################</span>
+<span class="c1">#                   GENERAL CONFIG                 #</span>
+<span class="c1">####################################################</span>
+<span class="nt">project_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PyAutoDoc</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alvaro</span>
+<span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="nt">language_locale</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">es</span>
+<span class="nt">root_folder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pyautodoc</span>
+<span class="nt">output_folder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MyOutputFolder</span>
+<span class="nt">sphinx_extensions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">sphinx.ext.viewcode</span>
+
+<span class="c1">####################################################</span>
+<span class="c1">#                     EXTRA FILES                  #</span>
+<span class="c1">####################################################</span>
+<span class="nt">readme_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">README.md</span>
+<span class="nt">license_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LICENSE.md</span>
+<span class="nt">changelog_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CHANGELOG.md</span>
+
+<span class="c1">####################################################</span>
+<span class="c1">#                   PROJECT CONFIG                 #</span>
+<span class="c1">####################################################</span>
+<span class="c1"># paquetes o ficheros específicos que no estarán en</span>
+<span class="c1"># la documentación</span>
+<span class="nt">excludes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">scripts</span>
+
+<span class="c1"># paquetes o ficheros generales que no estarán en</span>
+<span class="c1"># la documentación ej: todos los ficheros test.py</span>
+<span class="nt">ignores</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test.py</span>
+
+<span class="c1"># paquetes que no se deben importar al leer los</span>
+<span class="c1"># ficheros (solo se necesita especificar el paquete</span>
+<span class="c1"># de mas alto nivel)</span>
+<span class="nt">mocks_imports</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">django</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pyautodoc</span>
+
+<span class="c1">####################################################</span>
+<span class="c1">#                  COMPILING CONFIG                #</span>
+<span class="c1">####################################################</span>
+<span class="nt">makes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">html</span>
+  <span class="c1">#- pdf</span>
+
+<span class="c1">####################################################</span>
+<span class="c1">#                    HTML CONFIG                   #</span>
+<span class="c1">####################################################</span>
+<span class="nt">html_config</span><span class="p">:</span>
+  <span class="nt">template_theme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alabaster</span>
+  <span class="c1">#template_package: sphinx_theme</span>
+  <span class="c1">#template_path: sphinx_theme.get_html_theme_path(&#39;stanford-theme&#39;)</span>
+  <span class="c1">#template_extensions:</span>
+  <span class="c1"># - ext_1</span>
+  <span class="c1"># - ext_2</span>
+  <span class="nt">template_options</span><span class="p">:</span>
+    <span class="nt">logo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MyLogo</span>
+    <span class="nt">github_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alvarogf97</span>
+    <span class="nt">github_repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pyautodoc</span>
+    <span class="nt">fixed_sidebar</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Pyautodoc! Automatize your python project documentation</span>
+
+<span class="c1">####################################################</span>
+<span class="c1">#                 LaTeX PDF CONFIG                 #</span>
+<span class="c1">####################################################</span>
+<span class="nt">latex_config</span><span class="p">:</span>
+  <span class="nt">latex_engine</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pdflatex</span>
+  <span class="nt">latex_logo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MyLogo</span>
+</pre></div>
+</div>
+<p>Para generar la documentación ejecutamos:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">pyautodoc</span> <span class="c1">--yaml</span>
+</pre></div>
+</div>
+<p>Alternativamente, si el fichero <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> tiene otro nombre, o esta en otra localización, podemos
+ejecutar:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">pyautodoc</span> <span class="c1">--yaml &lt;Ruta del fichero .yaml&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-y-tablas">
+<h1>Indices y tablas<a class="headerlink" href="#indices-y-tablas" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Índice</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Índice de Módulos</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Página de Búsqueda</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Alvaro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

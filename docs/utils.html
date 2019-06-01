@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>utils &#8212; documentación de PyAutoDoc - 0.2</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="identify" href="identify.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">¡Automatiza la documentación de tu proyecto!</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=alvarogf97&repo=pyautodoc&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navegación</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">i18n</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identify.html">identify</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-utils.path">path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-utils.stringify">stringify</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="identify.html" title="capítulo anterior">identify</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-utils.__init__">
+<span id="utils"></span><h1>utils<a class="headerlink" href="#module-utils.__init__" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Módulo encargado de realizar acciones sencillas y atómicas que pueden ser usados en muchos módulos.</p>
+</div>
+<div class="section" id="module-utils.path">
+<span id="path"></span><h2>path<a class="headerlink" href="#module-utils.path" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="utils.path.get_abs_path">
+<code class="descclassname">utils.path.</code><code class="descname">get_abs_path</code><span class="sig-paren">(</span><em>path</em>, <em>relative_to</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.path.get_abs_path" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Obtiene el path absoluto de path si es relativo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – ruta</p></li>
+<li><p><strong>relative_to</strong> (<em>str</em>) – relativa a</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>ruta absoluta del path</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">get_abs_path</span><span class="p">(</span><span class="s1">&#39;../c.py&#39;</span><span class="p">,</span> <span class="s1">&#39;../dir&#39;</span><span class="p">,</span> <span class="s1">&#39;C:\&lt;username&gt;\c.py&#39;</span><span class="p">)</span>
+<span class="s1">&#39;c.py&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.path.path_leaf">
+<code class="descclassname">utils.path.</code><code class="descname">path_leaf</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.path.path_leaf" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Obtiene el nombre del fichero desde la ruta absoluta</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – ruta absoluta del fichero</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>nombre del fichero</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">path_leaf</span><span class="p">(</span><span class="s1">&#39;a/b/c.py&#39;</span><span class="p">)</span>
+<span class="s1">&#39;c.py&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils.stringify">
+<span id="stringify"></span><h2>stringify<a class="headerlink" href="#module-utils.stringify" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="utils.stringify.list_to_rst_modules">
+<code class="descclassname">utils.stringify.</code><code class="descname">list_to_rst_modules</code><span class="sig-paren">(</span><em>list_</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.list_to_rst_modules" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Combina los nombres de los módulos para formatearlos
+e incluirlos en un fichero <code class="docutils literal notranslate"><span class="pre">.rst</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>list</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – lista con los nombres de los módulos</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>string formateada para <code class="docutils literal notranslate"><span class="pre">.rst</span></code></p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">list_to_rst_modules</span><span class="p">([</span><span class="s1">&#39;generators&#39;</span><span class="p">,</span> <span class="s1">&#39;identify&#39;</span><span class="p">,</span> <span class="s1">&#39;utils&#39;</span><span class="p">])</span>
+<span class="s2">&quot;generators </span><span class="se">\n</span><span class="s2"> identify </span><span class="se">\n</span><span class="s2"> utils&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.stringify.generate_headline">
+<code class="descclassname">utils.stringify.</code><code class="descname">generate_headline</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.generate_headline" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera la cabecer para los titulos formateados en <code class="docutils literal notranslate"><span class="pre">.rst</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – texto para el que generar la cabecera</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>cabecera para el texto</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">generate_headline</span><span class="p">(</span><span class="s1">&#39;Welcome&#39;</span><span class="p">)</span>
+<span class="s1">&#39;===========&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.stringify.generate_sub_headline">
+<code class="descclassname">utils.stringify.</code><code class="descname">generate_sub_headline</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.generate_sub_headline" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera la cabecer para los subtitulos formateados en <code class="docutils literal notranslate"><span class="pre">.rst</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – texto para el que generar la cabecera</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>cabecera para el texto</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">generate_sub_headline</span><span class="p">(</span><span class="s1">&#39;Welcome&#39;</span><span class="p">)</span>
+<span class="s1">&#39;###########&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.stringify.generate_sub_sub_headline">
+<code class="descclassname">utils.stringify.</code><code class="descname">generate_sub_sub_headline</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.generate_sub_sub_headline" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera la cabecer para los subsubtitulos formateados en <code class="docutils literal notranslate"><span class="pre">.rst</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – texto para el que generar la cabecera</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>cabecera para el texto</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">generate_sub_sub_headline</span><span class="p">(</span><span class="s1">&#39;Welcome&#39;</span><span class="p">)</span>
+<span class="s1">&#39;***********&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.stringify.get_pyfile_header">
+<code class="descclassname">utils.stringify.</code><code class="descname">get_pyfile_header</code><span class="sig-paren">(</span><em>pyfile</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.get_pyfile_header" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Obtiene el nombre del fichero</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>pyfile</strong> (<em>str</em>) – nombre completo de la ruta del fichero <code class="docutils literal notranslate"><span class="pre">.py</span></code></p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>nombre del fichero</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">get_pyfile_header</span><span class="p">(</span><span class="s1">&#39;../a/c.py&#39;</span><span class="p">)</span>
+<span class="s1">&#39;c&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.stringify.convert_path">
+<code class="descclassname">utils.stringify.</code><code class="descname">convert_path</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.convert_path" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Escapa la ruta pasada por parámetros</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – ruta</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>ruta escapada</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">convert_path</span><span class="p">(</span><span class="s1">&#39;..\c.py&#39;</span><span class="p">)</span>
+<span class="s1">&#39;..</span><span class="se">\a</span><span class="s1">\c.py&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="utils.stringify.generate_mocks_stuff">
+<code class="descclassname">utils.stringify.</code><code class="descname">generate_mocks_stuff</code><span class="sig-paren">(</span><em>mocks_list</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.stringify.generate_mocks_stuff" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Convierte una lista a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>mocks_list</strong> – lista de las importaciones que no deben realizarse</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>lista en formato string</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">convert_path</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="s1">&#39;[&#39;</span><span class="n">a</span><span class="s1">&#39;, &#39;</span><span class="sa">b</span><span class="s1">&#39;]&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Alvaro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/utils.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

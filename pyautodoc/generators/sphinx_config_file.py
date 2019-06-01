@@ -20,7 +20,7 @@ def generate_config_file(root_folder, project_name, author, version, language_lo
     :param str project_name: nombre del proyecto
     :param str author: autor
     :param str version: versión del proyecto
-    :param str language_locale: código lingüìstico del país
+    :param str language_locale: código lingüístico del país
     :param str file_path: ruta del fichero para guardar
     :param dict html_options: diccionario con las opciones de configuración html para Sphinx
     :param dict latex_options: diccionario con las opciones de configuración LaTeX para Sphinx

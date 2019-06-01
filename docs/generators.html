@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>generators &#8212; documentación de PyAutoDoc - 0.2</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="i18n" href="i18n.html" />
+    <link rel="prev" title="License" href="license.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">¡Automatiza la documentación de tu proyecto!</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=alvarogf97&repo=pyautodoc&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navegación</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-generators.makefiles">makefiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-generators.rst_file">rst_file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-generators.sphinx_config_file">sphinx_config_file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-generators.sphinx_structure">sphinx_structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">i18n</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identify.html">identify</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="license.html" title="capítulo anterior">License</a></li>
+      <li>Next: <a href="i18n.html" title="próximo capítulo">i18n</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-generators.__init__">
+<span id="generators"></span><h1>generators<a class="headerlink" href="#module-generators.__init__" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Módulo encargado de la generación de los ficheros necesarios de Sphinx.</p>
+</div>
+<div class="section" id="module-generators.makefiles">
+<span id="makefiles"></span><h2>makefiles<a class="headerlink" href="#module-generators.makefiles" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="generators.makefiles.gen_window_makefile">
+<code class="descclassname">generators.makefiles.</code><code class="descname">gen_window_makefile</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.makefiles.gen_window_makefile" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera windows make.bat</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – ruta para guardar el fichero</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.makefiles.gen_makefile">
+<code class="descclassname">generators.makefiles.</code><code class="descname">gen_makefile</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.makefiles.gen_makefile" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera el makefile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – ruta para guardar el fichero</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-generators.rst_file">
+<span id="rst-file"></span><h2>rst_file<a class="headerlink" href="#module-generators.rst_file" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="generators.rst_file.generate_index_rst">
+<code class="descclassname">generators.rst_file.</code><code class="descname">generate_index_rst</code><span class="sig-paren">(</span><em>file_path</em>, <em>project_name</em>, <em>readme_file_path</em>, <em>python_files</em>, <em>python_packages</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.rst_file.generate_index_rst" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera el fichero <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, el fichero raíz de la documentación</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – ruta para guardar el fichero</p></li>
+<li><p><strong>project_name</strong> (<em>str</em>) – nombre del proyecto</p></li>
+<li><p><strong>readme_file_path</strong> (<em>str</em>) – ruta del fichero README.md</p></li>
+<li><p><strong>python_files</strong> (<em>list</em>) – lista de los ficheros <code class="docutils literal notranslate"><span class="pre">.py</span></code> que deben estar en el fichero</p></li>
+<li><p><strong>python_packages</strong> (<em>list</em>) – lista de los módulos que deben estar en el fichero</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.rst_file.generate_markdown_rst">
+<code class="descclassname">generators.rst_file.</code><code class="descname">generate_markdown_rst</code><span class="sig-paren">(</span><em>file_path</em>, <em>name</em>, <em>md_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.rst_file.generate_markdown_rst" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera un fichero <code class="docutils literal notranslate"><span class="pre">.rst</span></code> a raíz de uno <code class="docutils literal notranslate"><span class="pre">.md</span></code> usando la directiva <code class="docutils literal notranslate"><span class="pre">&quot;..mdinclude::&quot;</span></code> del
+paquete m2r</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – ruta para guardar el fichero</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – nombre del fichero markdown</p></li>
+<li><p><strong>md_file_path</strong> (<em>str</em>) – ruta del fichero markdown</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.rst_file.generate_package_leaf_rst">
+<code class="descclassname">generators.rst_file.</code><code class="descname">generate_package_leaf_rst</code><span class="sig-paren">(</span><em>file_path</em>, <em>package_name</em>, <em>python_files</em>, <em>init</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.rst_file.generate_package_leaf_rst" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera el fichero <code class="docutils literal notranslate"><span class="pre">.rst</span></code> de un paquete python que no contiene ningún submódulo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – ruta del fichero para guardar</p></li>
+<li><p><strong>package_name</strong> (<em>str</em>) – nombre del módulo</p></li>
+<li><p><strong>python_files</strong> (<em>list</em>) – lista con los fichero <code class="docutils literal notranslate"><span class="pre">`.py</span></code> del módulo</p></li>
+<li><p><strong>init</strong> (<em>str</em>) – ruta del fichero <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.rst_file.generate_package_not_leaf_rst">
+<code class="descclassname">generators.rst_file.</code><code class="descname">generate_package_not_leaf_rst</code><span class="sig-paren">(</span><em>file_path</em>, <em>package_name</em>, <em>python_files</em>, <em>python_packages</em>, <em>init</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.rst_file.generate_package_not_leaf_rst" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera el fichero <code class="docutils literal notranslate"><span class="pre">.rst</span></code> de un paquete python que contiene algún submódulo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – ruta del fichero para guardar</p></li>
+<li><p><strong>package_name</strong> (<em>str</em>) – nombre del módulo</p></li>
+<li><p><strong>python_files</strong> (<em>list</em>) – lista con los fichero <code class="docutils literal notranslate"><span class="pre">`.py</span></code> del módulo</p></li>
+<li><p><strong>python_packages</strong> (<em>list</em>) – lista con los submódulos del módulo python</p></li>
+<li><p><strong>init</strong> (<em>str</em>) – ruta del fichero <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-generators.sphinx_config_file">
+<span id="sphinx-config-file"></span><h2>sphinx_config_file<a class="headerlink" href="#module-generators.sphinx_config_file" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="generators.sphinx_config_file.generate_config_file">
+<code class="descclassname">generators.sphinx_config_file.</code><code class="descname">generate_config_file</code><span class="sig-paren">(</span><em>root_folder</em>, <em>project_name</em>, <em>author</em>, <em>version</em>, <em>language_locale</em>, <em>file_path</em>, <em>html_options=None</em>, <em>latex_options=None</em>, <em>mocks_imports=None</em>, <em>extra_extensions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.sphinx_config_file.generate_config_file" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera el fichero de configuración necesario para sphinx</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_folder</strong> (<em>str</em>) – ruta de la carpeta raíz del proyecto a documentar</p></li>
+<li><p><strong>project_name</strong> (<em>str</em>) – nombre del proyecto</p></li>
+<li><p><strong>author</strong> (<em>str</em>) – autor</p></li>
+<li><p><strong>version</strong> (<em>str</em>) – versión del proyecto</p></li>
+<li><p><strong>language_locale</strong> (<em>str</em>) – código lingüístico del país</p></li>
+<li><p><strong>file_path</strong> (<em>str</em>) – ruta del fichero para guardar</p></li>
+<li><p><strong>html_options</strong> (<em>dict</em>) – diccionario con las opciones de configuración html para Sphinx</p></li>
+<li><p><strong>latex_options</strong> (<em>dict</em>) – diccionario con las opciones de configuración LaTeX para Sphinx</p></li>
+<li><p><strong>mocks_imports</strong> (<em>list</em>) – lista de las importaciones que deben ignorarse dentro del ficheros</p></li>
+<li><p><strong>extra_extensions</strong> (<em>list</em>) – lista con las extensiónes extra de Sphinx</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.sphinx_config_file.generate_html_config">
+<code class="descclassname">generators.sphinx_config_file.</code><code class="descname">generate_html_config</code><span class="sig-paren">(</span><em>html_options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.sphinx_config_file.generate_html_config" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera la información necesaria para la compilación a HTML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>html_options</strong> (<em>dict</em>) – diccionario con las opciones html de Sphinx</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>string con la información necesaría para añadir al fichero <code class="docutils literal notranslate"><span class="pre">`conf.py</span></code> en lo referente a las opciones html</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.sphinx_config_file.generate_latex_config">
+<code class="descclassname">generators.sphinx_config_file.</code><code class="descname">generate_latex_config</code><span class="sig-paren">(</span><em>latex_options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.sphinx_config_file.generate_latex_config" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera la información necesaria para la compilación a LaTeX</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>latex_options</strong> (<em>dict</em>) – diccionario con las opciones LaTeX de Sphinx</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>string con la información necesaría para añadir al fichero <code class="docutils literal notranslate"><span class="pre">`conf.py</span></code> en lo referente a las opciones LaTeX</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-generators.sphinx_structure">
+<span id="sphinx-structure"></span><h2>sphinx_structure<a class="headerlink" href="#module-generators.sphinx_structure" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="generators.sphinx_structure.generate_structure">
+<code class="descclassname">generators.sphinx_structure.</code><code class="descname">generate_structure</code><span class="sig-paren">(</span><em>root_folder</em>, <em>project_name</em>, <em>author</em>, <em>version</em>, <em>language_locale</em>, <em>readme_file</em>, <em>license_file</em>, <em>changelog_file</em>, <em>excludes=None</em>, <em>ignores=None</em>, <em>html_options=None</em>, <em>latex_options=None</em>, <em>mocks_imports=None</em>, <em>sphinx_extensions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.sphinx_structure.generate_structure" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera la estructura de Sphinx de acuerdo a los parámetros recibidos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_folder</strong> (<em>str</em>) – ruta de la carpeta raíz del proyecto a documentar</p></li>
+<li><p><strong>project_name</strong> (<em>str</em>) – nombre del proyecto</p></li>
+<li><p><strong>author</strong> (<em>str</em>) – autor</p></li>
+<li><p><strong>version</strong> (<em>str</em>) – versión</p></li>
+<li><p><strong>language_locale</strong> (<em>str</em>) – código lingüístico del país</p></li>
+<li><p><strong>readme_file</strong> (<em>str</em>) – ruta del fichero <code class="docutils literal notranslate"><span class="pre">README.md</span></code></p></li>
+<li><p><strong>license_file</strong> (<em>str</em>) – ruta del fichero <code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></p></li>
+<li><p><strong>changelog_file</strong> (<em>str</em>) – ruta del fichero <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code></p></li>
+<li><p><strong>excludes</strong> (<em>list</em>) – lista con los elementos a excluir</p></li>
+<li><p><strong>ignores</strong> (<em>list</em>) – lista con los elementos a ignorar</p></li>
+<li><p><strong>html_options</strong> (<em>dict</em>) – diccionario con la configuración html de Sphinx</p></li>
+<li><p><strong>latex_options</strong> (<em>dict</em>) – diccionario con la configuración LaTeX de Sphinx</p></li>
+<li><p><strong>mocks_imports</strong> (<em>list</em>) – lista con las importaciones que deben ignorarse dentro del proyecto</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="generators.sphinx_structure.generate_modules_srt">
+<code class="descclassname">generators.sphinx_structure.</code><code class="descname">generate_modules_srt</code><span class="sig-paren">(</span><em>root_module</em><span class="sig-paren">)</span><a class="headerlink" href="#generators.sphinx_structure.generate_modules_srt" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Genera los ficheros <code class="docutils literal notranslate"><span class="pre">.rst</span></code> de los módulos identificados</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>root_module</strong> (<a class="reference internal" href="identify.html#identify.data.Module" title="identify.data.Module"><em>Module</em></a>) – módulo raíz del proyecto a documentar</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Alvaro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/generators.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

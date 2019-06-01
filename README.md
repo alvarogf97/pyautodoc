@@ -70,6 +70,8 @@ version: 0.5
 language_locale: es
 root_folder: pyautodoc
 output_folder: MyOutputFolder
+sphinx_extensions:
+  - sphinx.ext.viewcode
 
 ####################################################
 #                     EXTRA FILES                  #

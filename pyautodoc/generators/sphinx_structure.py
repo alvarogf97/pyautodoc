@@ -17,7 +17,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param str project_name: nombre del proyecto
     :param str author: autor
     :param str version: versión
-    :param str language_locale: código lingüìstico del país
+    :param str language_locale: código lingüístico del país
     :param str readme_file: ruta del fichero ``README.md``
     :param str license_file: ruta del fichero ``LICENSE.md``
     :param str changelog_file: ruta del fichero ``CHANGELOG.md``

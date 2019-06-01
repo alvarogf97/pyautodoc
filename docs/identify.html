@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>identify &#8212; documentación de PyAutoDoc - 0.2</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="utils" href="utils.html" />
+    <link rel="prev" title="i18n" href="i18n.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">¡Automatiza la documentación de tu proyecto!</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=alvarogf97&repo=pyautodoc&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navegación</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">i18n</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">identify</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-identify.data">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-identify.packages">packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-identify.project_structure">project_structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="i18n.html" title="capítulo anterior">i18n</a></li>
+      <li>Next: <a href="utils.html" title="próximo capítulo">utils</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-identify.__init__">
+<span id="identify"></span><h1>identify<a class="headerlink" href="#module-identify.__init__" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Módulo encargado de la identificación de la estructura del proyecto a documentar.</p>
+</div>
+<div class="section" id="module-identify.data">
+<span id="data"></span><h2>data<a class="headerlink" href="#module-identify.data" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="class">
+<dt id="identify.data.Module">
+<em class="property">class </em><code class="descclassname">identify.data.</code><code class="descname">Module</code><span class="sig-paren">(</span><em>name</em>, <em>python_files</em>, <em>submodules</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#identify.data.Module" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Un módulo es un paquete contenedor de python</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">myModule</span><span class="p">)</span>
+<span class="o">|--</span><span class="n">Root</span>
+    <span class="o">|--</span><span class="n">generators</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">makefiles</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">rst_file</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">sphinx_config_file</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">sphinx_structure</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span><span class="n">i18n</span>
+        <span class="o">|----</span><span class="n">i18n</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|--</span><span class="n">locales</span>
+            <span class="o">|----</span><span class="n">i18n</span><span class="o">.</span><span class="n">locales</span><span class="o">.</span><span class="n">es</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span><span class="n">identify</span>
+        <span class="o">|----</span><span class="n">identify</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">identify</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">identify</span><span class="o">.</span><span class="n">project_structure</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span><span class="n">utils</span>
+        <span class="o">|----</span><span class="n">utils</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">utils</span><span class="o">.</span><span class="n">stringify</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Nombre del módulo python</p></li>
+<li><p><strong>python_files</strong> (<em>list</em><em>[</em><a class="reference internal" href="#identify.data.PythonFile" title="identify.data.PythonFile"><em>PythonFile</em></a><em>]</em>) – ficheros <code class="docutils literal notranslate"><span class="pre">.py</span></code> dentro del módulo python</p></li>
+<li><p><strong>submodules</strong> (<em>list</em><em>[</em><a class="reference internal" href="#identify.data.Module" title="identify.data.Module"><em>Module</em></a><em>]</em>) – submodulos</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – nombre del fichero <code class="docutils literal notranslate"><span class="pre">.rst</span></code> de salida del módulo</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="identify.data.Module.is_leaf">
+<code class="descname">is_leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#identify.data.Module.is_leaf" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Comprueba si el paquete es un paquete sin submódulos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve</dt>
+<dd class="field-odd"><p>True si lo es, False en otro caso</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="identify.data.PythonFile">
+<em class="property">class </em><code class="descclassname">identify.data.</code><code class="descname">PythonFile</code><span class="sig-paren">(</span><em>name</em>, <em>classes</em><span class="sig-paren">)</span><a class="headerlink" href="#identify.data.PythonFile" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Un PythonFile es la representación de un fichero python,
+que contiene su nombre y las clases que implementa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – nombre del fichero <code class="docutils literal notranslate"><span class="pre">.py</span></code></p></li>
+<li><p><strong>classes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – clases que implementa el fichero</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-identify.packages">
+<span id="packages"></span><h2>packages<a class="headerlink" href="#module-identify.packages" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="identify.packages.is_package">
+<code class="descclassname">identify.packages.</code><code class="descname">is_package</code><span class="sig-paren">(</span><em>folder</em><span class="sig-paren">)</span><a class="headerlink" href="#identify.packages.is_package" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Comprueba si una carpeta es un paquete python</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – ruta de la carpeta</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>True si es un paquete, False en otro caso</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">is_package</span><span class="p">(</span><span class="s1">&#39;../pydoc&#39;</span><span class="p">)</span>
+<span class="s1">&#39;True&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="identify.packages.get_folder_name">
+<code class="descclassname">identify.packages.</code><code class="descname">get_folder_name</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#identify.packages.get_folder_name" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Obtiene el nombra de la carpeta de la ruta especificada</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – ruta</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>nombre de la carpeta de la ruta</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">get_folder_name</span><span class="p">(</span><span class="s1">&#39;../myfolder/pydoc&#39;</span><span class="p">)</span>
+<span class="s1">&#39;pydoc&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-identify.project_structure">
+<span id="project-structure"></span><h2>project_structure<a class="headerlink" href="#module-identify.project_structure" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="identify.project_structure.identify_structure">
+<code class="descclassname">identify.project_structure.</code><code class="descname">identify_structure</code><span class="sig-paren">(</span><em>root_folder</em>, <em>excludes</em>, <em>ignores</em>, <em>modules_structure=None</em>, <em>name='Root'</em><span class="sig-paren">)</span><a class="headerlink" href="#identify.project_structure.identify_structure" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Identifica la estructura del proyecto a documentar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_folder</strong> (<em>str</em>) – carpeta raíz</p></li>
+<li><p><strong>excludes</strong> (<em>list</em>) – lista de elementos a excluir</p></li>
+<li><p><strong>ignores</strong> (<em>list</em>) – lista de elementos a ignorar</p></li>
+<li><p><strong>modules_structure</strong> (<em>list</em>) – lista de los módulos ya recorridos</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – nombre del nodo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>devuelve el módulo raíz <strong>root</strong> con todos sus submódulos</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#identify.data.Module" title="identify.data.Module">Module</a></p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">identify_structure</span><span class="p">(</span><span class="s1">&#39;../myfolder/pydoc&#39;</span><span class="p">)</span>
+<span class="o">|--</span><span class="n">Root</span>
+    <span class="o">|--</span><span class="n">generators</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">makefiles</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">rst_file</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">sphinx_config_file</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">generators</span><span class="o">.</span><span class="n">sphinx_structure</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span><span class="n">i18n</span>
+        <span class="o">|----</span><span class="n">i18n</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|--</span><span class="n">locales</span>
+            <span class="o">|----</span><span class="n">i18n</span><span class="o">.</span><span class="n">locales</span><span class="o">.</span><span class="n">es</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span><span class="n">identify</span>
+        <span class="o">|----</span><span class="n">identify</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">identify</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">identify</span><span class="o">.</span><span class="n">project_structure</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">|--</span><span class="n">utils</span>
+        <span class="o">|----</span><span class="n">utils</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|----</span><span class="n">utils</span><span class="o">.</span><span class="n">stringify</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="identify.project_structure.get_classes">
+<code class="descclassname">identify.project_structure.</code><code class="descname">get_classes</code><span class="sig-paren">(</span><em>pyfile_path</em><span class="sig-paren">)</span><a class="headerlink" href="#identify.project_structure.get_classes" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Obtiene las clases que están dentro de un fichero python</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><p><strong>pyfile_path</strong> (<em>str</em>) – nombre del fichero a inspeccionar</p>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>devuelve una lista con todas las clases dentro de un fichero python</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">get_classes</span><span class="p">(</span><span class="s1">&#39;./data.py&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;Module&#39;</span><span class="p">,</span> <span class="s1">&#39;PythonFile&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Alvaro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/identify.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
