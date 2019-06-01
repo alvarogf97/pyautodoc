@@ -81,12 +81,19 @@ changelog_file: CHANGELOG.md
 ####################################################
 #                   PROJECT CONFIG                 #
 ####################################################
+# paquetes o ficheros específicos que no estarán en 
+# la documentación
 excludes:
   - scripts
 
+# paquetes o ficheros generales que no estarán en 
+# la documentación ej: todos los ficheros test.py
 ignores:
   - test.py
 
+# paquetes que no se deben importar al leer los 
+# ficheros (solo se necesita especificar el paquete
+# de mas alto nivel)
 mocks_imports:
   - django
   - pyautodoc
