@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='pyautodoc',
-    version='0.6',
+    version='0.6.1',
     packages=find_packages(),
     url='https://github.com/alvarogf97/pyautodoc',
     license='MIT',

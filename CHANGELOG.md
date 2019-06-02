@@ -1,6 +1,5 @@
 ### v 0.6
 - Se ha añadido la posibilidad de adjuntar un css propio
-- Se ha añadido la psibilidad de generar la documentación para github pages
 
 
 ### v 0.5

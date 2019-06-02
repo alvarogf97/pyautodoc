@@ -113,6 +113,7 @@ makes:
 ####################################################
 html_config:
   template_theme: alabaster
+  #custom_css:
   #template_package: sphinx_theme
   #template_path: sphinx_theme.get_html_theme_path('stanford-theme')
   #template_extensions:
@@ -144,3 +145,11 @@ ejecutar:
 ````
 pyautodoc --yaml <Ruta del fichero .yaml>
 ````
+
+## Subir documentación a github
+ - Añadimos ``sphinx.ext.githubpages`` a las ``sphinx_extensions`` 
+ - Creamos una directorio **docs** en el directorio raíz del repositorio
+ - Copiamos el contenido del directorio ``/build/html`` al directorio ``docs``
+ - Copiamos el directorio ``source`` al directorio ``docs``
+ - Hacemos ``comit`` y ``push``
+ - En github nos vamos a **settings > github pages > source** y seleccionamos **master branch/docs folder** 

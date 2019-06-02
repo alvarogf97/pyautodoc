@@ -43,7 +43,7 @@ makes:
 ####################################################
 html_config:
   template_theme: alabaster
-  custom_css: C:\Users\alvaro\Desktop\doc\my_css.css
+  #custom_css:
   #template_package:
   #template_path:
   #template_extensions:
