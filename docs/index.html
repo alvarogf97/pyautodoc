@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Bienvenido a la documentación de PyAutoDoc &#8212; documentación de PyAutoDoc - 0.2</title>
+    <title>Bienvenido a la documentación de PyAutoDoc &#8212; documentación de PyAutoDoc - 0.6</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -101,7 +101,8 @@
 <p>Pyautodoc permite la creación de documentación de los proyectos python de forma totalmente automática y
 configurable. Hace uso del proyecto <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> y de extensiones como
 <a class="reference external" href="http://www.sphinx-doc.org/es/stable/ext/autodoc.html">autodoc</a> para generar la documentación en función
-de los <strong>docstring</strong> de las clases y métodos del proyecto.</p>
+de los <strong>docstring</strong> de las clases y métodos del proyecto. Puedes leer la documentación generada con este proyecto,
+y sobre este proyecto <a class="reference external" href="https://alvarogf97.github.io/pyautodoc/index.html">pinchando aqui</a></p>
 </div>
 <div class="section" id="guia-rapida">
 <h1>Guía rápida<a class="headerlink" href="#guia-rapida" title="Enlazar permanentemente con este título">¶</a></h1>
@@ -202,6 +203,7 @@ documentación, esta opción permite una configuración mucho mas amplia que la 
 <span class="c1">####################################################</span>
 <span class="nt">html_config</span><span class="p">:</span>
   <span class="nt">template_theme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alabaster</span>
+  <span class="c1">#custom_css:</span>
   <span class="c1">#template_package: sphinx_theme</span>
   <span class="c1">#template_path: sphinx_theme.get_html_theme_path(&#39;stanford-theme&#39;)</span>
   <span class="c1">#template_extensions:</span>
@@ -232,6 +234,17 @@ ejecutar:</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="subir-documentacion-a-github">
+<h2>Subir documentación a github<a class="headerlink" href="#subir-documentacion-a-github" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Añadimos <code class="docutils literal notranslate"><span class="pre">sphinx.ext.githubpages</span></code> a las <code class="docutils literal notranslate"><span class="pre">sphinx_extensions</span></code></p></li>
+<li><p>Creamos una directorio <strong>docs</strong> en el directorio raíz del repositorio</p></li>
+<li><p>Copiamos el contenido del directorio <code class="docutils literal notranslate"><span class="pre">/build/html</span></code> al directorio <code class="docutils literal notranslate"><span class="pre">docs</span></code></p></li>
+<li><p>Copiamos el directorio <code class="docutils literal notranslate"><span class="pre">source</span></code> al directorio <code class="docutils literal notranslate"><span class="pre">docs</span></code></p></li>
+<li><p>Hacemos <code class="docutils literal notranslate"><span class="pre">comit</span></code> y <code class="docutils literal notranslate"><span class="pre">push</span></code></p></li>
+<li><p>En github nos vamos a <strong>settings &gt; github pages &gt; source</strong> y seleccionamos <strong>master branch/docs folder</strong></p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="indices-y-tablas">

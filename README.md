@@ -16,7 +16,7 @@ pip install git+https://github.com/alvarogf97/pyautodoc.git
 Desde **PyPi**:
 
 ````
-Próximamente
+pip install pyautodoc
 ````
 
 ## Uso

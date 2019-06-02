@@ -1,3 +1,4 @@
+import codecs
 from setuptools import setup, find_packages
 
 
@@ -8,7 +9,7 @@ def readme():
 
 setup(
     name='pyautodoc',
-    version='0.6.1',
+    version='0.6.3',
     packages=find_packages(),
     url='https://github.com/alvarogf97/pyautodoc',
     license='MIT',
@@ -19,12 +20,7 @@ setup(
         'm2r',
         'pyyaml'
     ],
-    classifiers=[
-        'Development Status :: 1 - Alpha',
-        'License :: MIT License',
-        'Programming Language :: Python :: >3.4',
-        'Topic :: Shpinx :: automatic',
-      ],
+    classifiers=[],
     long_description=readme(),
     long_description_content_type='text/markdown',
     entry_points={
