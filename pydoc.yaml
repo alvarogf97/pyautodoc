@@ -43,8 +43,9 @@ makes:
 ####################################################
 html_config:
   template_theme: alabaster
-  #template_package: sphinx_adc_theme
-  #template_path: sphinx_adc_theme.get_html_theme_path()
+  custom_css: C:\Users\alvaro\Desktop\doc\my_css.css
+  #template_package:
+  #template_path:
   #template_extensions:
   #  - sphinxjp.themes.basicstrap
   template_options:

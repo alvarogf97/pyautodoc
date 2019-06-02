@@ -1,3 +1,8 @@
+### v 0.6
+- Se ha añadido la posibilidad de adjuntar un css propio
+- Se ha añadido la psibilidad de generar la documentación para github pages
+
+
 ### v 0.5
 - Se ha corregido un bug que no permitia generar la documentación desde consola
 - Se puede configurar las opciones del tema desde el fichero yaml

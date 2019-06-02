@@ -86,6 +86,14 @@ def from_yaml(file):
             if html_logo_file_path is not None and os.path.isdir('./source/_static'):
                 shutil.copy(html_logo_file_path, './source/_static')
 
+            if config.get('html_config', {}).get('custom_css') is not None:
+                css_path = convert_path(get_abs_path(config['html_config']['custom_css'], yaml_folder))
+                if os.path.isfile(css_path):
+                    shutil.copy(css_path, './source/_static')
+                    os.rename('./source/_static/' + path_leaf(css_path), './source/_static/custom.css')
+                else:
+                    print('cannot import custom css, file: ' + css_path + ' does not exists')
+
             makes = config.get('makes', [])
             for make_action in makes:
                 try:
