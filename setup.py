@@ -1,4 +1,3 @@
-import codecs
 from setuptools import setup, find_packages
 
 
@@ -9,7 +8,7 @@ def readme():
 
 setup(
     name='pyautodoc',
-    version='0.6.3',
+    version='0.7',
     packages=find_packages(),
     url='https://github.com/alvarogf97/pyautodoc',
     license='MIT',
