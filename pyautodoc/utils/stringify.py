@@ -34,7 +34,7 @@ def generate_headline(text):
         '==========='
 
     """
-    return "=" * (len(text) + 4)
+    return "=" * (len(text) + 6)
 
 
 def generate_sub_headline(text):
@@ -51,7 +51,7 @@ def generate_sub_headline(text):
         '###########'
 
     """
-    return "#" * (len(text) + 4)
+    return "#" * (len(text) + 6)
 
 
 def generate_sub_sub_headline(text):
@@ -68,7 +68,7 @@ def generate_sub_sub_headline(text):
         '***********'
 
     """
-    return "*" * (len(text) + 4)
+    return "*" * (len(text) + 6)
 
 
 def get_pyfile_header(pyfile):

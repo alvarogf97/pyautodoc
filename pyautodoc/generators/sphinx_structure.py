@@ -9,7 +9,7 @@ from pyautodoc.identify.project_structure import identify_structure
 
 def generate_structure(root_folder, project_name, author, version, language_locale, readme_file,
                        license_file, changelog_file, excludes=None, ignores=None, html_options=None,
-                       latex_options=None, mocks_imports=None, sphinx_extensions=None):
+                       latex_options=None, mocks_imports=None, sphinx_extensions=None, indexes=None):
     """
     Genera la estructura de Sphinx de acuerdo a los parámetros recibidos.
 
@@ -26,6 +26,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     :param dict html_options: diccionario con la configuración html de Sphinx
     :param dict latex_options: diccionario con la configuración LaTeX de Sphinx
     :param list mocks_imports: lista con las importaciones que deben ignorarse dentro del proyecto
+    :param bool indexes: indica si se debe o no incluir los índices y tablas
     """
 
     if excludes is None:
@@ -66,7 +67,7 @@ def generate_structure(root_folder, project_name, author, version, language_loca
     modules.extend([mod.filename for mod in root.submodules])
 
     generate_modules_srt(root)
-    generate_index_rst('./source/index.rst', project_name, readme_file, root.python_files, modules)
+    generate_index_rst('./source/index.rst', project_name, readme_file, root.python_files, modules, indexes)
 
 
 def generate_modules_srt(root_module):

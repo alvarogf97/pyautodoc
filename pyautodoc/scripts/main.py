@@ -81,7 +81,7 @@ def from_yaml(file):
                                config['author'], config['version'], config.get('language_locale', 'es'),
                                readme_file, license_file, changelog_file, config.get('excludes'),
                                config.get('ignores'), config.get('html_config'), config.get('latex_config'),
-                               config.get('mocks_imports'), config.get('sphinx_extensions'))
+                               config.get('mocks_imports'), config.get('sphinx_extensions'), config.get('indexes'))
 
             if html_logo_file_path is not None and os.path.isdir('./source/_static'):
                 shutil.copy(html_logo_file_path, './source/_static')

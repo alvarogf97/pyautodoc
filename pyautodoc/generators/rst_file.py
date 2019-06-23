@@ -3,7 +3,7 @@ from pyautodoc.utils.stringify import list_to_rst_modules, generate_headline, ge
 from pyautodoc.i18n.dictionary import Locale
 
 
-def generate_index_rst(file_path, project_name, readme_file_path, python_files, python_packages):
+def generate_index_rst(file_path, project_name, readme_file_path, python_files, python_packages, indexes=True):
     """
     Genera el fichero ``index.rst``, el fichero raíz de la documentación
 
@@ -12,6 +12,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
     :param str readme_file_path: ruta del fichero README.md
     :param list python_files: lista de los ficheros ``.py`` que deben estar en el fichero
     :param list python_packages: lista de los módulos que deben estar en el fichero
+    :param bool indexes: indica si se debe o no incluir los índices y tablas
     """
 
     readme = ''
@@ -19,7 +20,7 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
         readme = '.. mdinclude :: {}'.format(readme_file_path)
 
     template = """
-{}
+**{}**
 {}
 .. toctree::
    :hidden:
@@ -27,17 +28,20 @@ def generate_index_rst(file_path, project_name, readme_file_path, python_files, 
    
 {}
 {}
+    """.format(Locale().strings.get('welcome msg').format(project_name),
+               generate_headline(Locale().strings.get('welcome msg').format(project_name)),
+               list_to_rst_modules(python_packages), readme)
 
+    if indexes:
+        indexes_template = """
+**{}**
 {}
-==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-    """.format(Locale().strings.get('welcome msg').format(project_name),
-               generate_headline(Locale().strings.get('welcome msg').format(project_name)),
-               list_to_rst_modules(python_packages), readme,
-               Locale().strings.get('indexes content'))
+        """.format(Locale().strings.get('indexes content'), generate_headline(Locale().strings.get('indexes content')))
+        template = template + indexes_template
 
     includes = ''
     for pyfile in python_files:
@@ -59,7 +63,7 @@ def generate_markdown_rst(file_path, name, md_file_path):
     """
 
     template = """
-{}
+**{}**
 {}
 .. mdinclude :: {}
 
@@ -79,14 +83,14 @@ def generate_package_leaf_rst(file_path, package_name, python_files, init):
     :param str init: ruta del fichero ``__init__.py``
     """
     template = """
-{}
+**{}**
 {}
    """.format(package_name, generate_headline(package_name))
 
     template = template + '\n.. automodule:: {}\n   :members:'.format(init) + '\n'
 
     for pyfile in python_files:
-        template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
+        template = template + '\n**' + get_pyfile_header(pyfile.name) + '**\n' + generate_sub_headline(pyfile.name) + \
                    '\n.. automodule:: {}\n   :members:'.format(pyfile.name) + '\n '
         for class_ in pyfile.classes:
             template = template + '\n.. autoclass:: {}\n   :members:'.format(class_) + '\n'
@@ -106,10 +110,10 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
     :param str init: ruta del fichero ``__init__.py``
     """
     template = """
-{}
+**{}**
 {}
 
-{}
+**{}**
 {}
 .. toctree::
    :maxdepth: 1
@@ -121,7 +125,7 @@ def generate_package_not_leaf_rst(file_path, package_name, python_files, python_
     template = template + '\n.. automodule:: {}\n   :members:'.format(init) + '\n'
 
     for pyfile in python_files:
-        template = template + '\n' + get_pyfile_header(pyfile.name) + '\n' + generate_sub_headline(pyfile.name) + \
+        template = template + '\n**' + get_pyfile_header(pyfile.name) + '**\n' + generate_sub_headline(pyfile.name) + \
                    '\n.. automodule:: {}\n   :members:'.format(pyfile.name) + '\n'
         for class_ in pyfile.classes:
             template = template + '\n.. autoclass:: {}\n   :members:'.format(class_) + '\n'

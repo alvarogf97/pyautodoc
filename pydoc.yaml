@@ -6,7 +6,7 @@ author: Alvaro
 version: 0.6
 language_locale: es
 root_folder: pyautodoc
-output_folder: C:\Users\alvaro\Desktop\Nueva carpeta
+output_folder: do
 sphinx_extensions:
   - sphinx.ext.githubpages
 
@@ -16,7 +16,7 @@ sphinx_extensions:
 readme_file: README.md
 license_file: LICENSE.md
 changelog_file: CHANGELOG.md
-
+indexes: False
 ####################################################
 #                   PROJECT CONFIG                 #
 ####################################################
@@ -49,7 +49,6 @@ html_config:
   #template_extensions:
   #  - sphinxjp.themes.basicstrap
   template_options:
-    logo: C:\Users\alvaro\Desktop\doc\logo.png
     github_user: alvarogf97
     github_repo: pyautodoc
     fixed_sidebar: True
